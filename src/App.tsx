@@ -8,16 +8,17 @@ import {
   Mail, 
   MapPin, 
   ChevronRight, 
-  Menu, 
   X,
   MessageCircle,
   BarChart3,
   CheckCircle2
 } from 'lucide-react';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import { motion, AnimatePresence } from 'framer-motion';
 import { JSX } from 'react/jsx-runtime';
+import Footer, { ContactSocials } from './components/Footer';
+import Hero from './components/Hero';
+import Navbar from './components/Navbar';
+import Button from './components/ui/Button';
 
 // --- COMPONENTES ATÓMICOS ---
 
@@ -37,197 +38,6 @@ const SectionTitle = ({ title, subtitle, light = false }: { title: string; subti
     </p>
   </div>
 );
-
-interface ButtonProps {
-  children: React.ReactNode;
-  variant?: 'primary' | 'outline' | 'accent';
-  className?: string;
-  disabled?: boolean;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-const Button = ({ children, variant = 'primary', className = '', ...props }: ButtonProps) => {
-  const variants: Record<string, string> = {
-    primary: 'bg-blue-700 hover:bg-blue-800 text-white shadow-lg shadow-blue-900/20',
-    outline: 'border-2 border-blue-700 text-blue-700 hover:bg-blue-50',
-    accent: 'bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold',
-  };
-  return (
-    <button 
-      className={`px-8 py-3 rounded-md transition-all duration-300 font-medium active:scale-95 flex items-center justify-center gap-2 ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
-    </button>
-  );
-};
-
-// --- SECCIONES ---
-
-const Navbar = ({ useDarkText = false, onNavigate }: { useDarkText?: boolean; onNavigate?: (href: string) => void }) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenu, setMobileMenu] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: 'Inicio', href: '#' },
-    { name: 'Servicios', href: '#servicios' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Productos', href: '#productos' },
-    { name: 'Proceso', href: '#proceso' },
-    { name: 'Contacto', href: '#contacto' },
-  ];
-
-  const handleCotizarClick = () => {
-    const message = encodeURIComponent(
-      'Hola, me gustaría solicitar una cotización para servicios de mantenimiento y reparación de motores y generadores. ¿Podrían proporcionarme más información sobre sus precios y disponibilidad?'
-    );
-    window.open(`https://wa.me/593998799981?text=${message}`, '_blank');
-  };
-
-  const isDarkText = isScrolled || useDarkText;
-
-  return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
-          <div className="flex flex-col">
-            <img src="/logo_rfm.png" alt="Logo RMF" className="h-15 w-auto" />
-            
-          </div>
-        </div>
-
-        {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map(link => (
-            <a 
-              key={link.name} 
-              href={link.href} 
-              onClick={event => {
-                if (onNavigate) {
-                  event.preventDefault();
-                  onNavigate(link.href);
-                }
-              }}
-              className={`text-sm font-medium transition-colors hover:text-blue-500 ${isDarkText ? 'text-slate-700' : 'text-white'}`}
-            >
-              {link.name}
-            </a>
-          ))}
-          <Button variant="accent" className="text-xs py-2 px-4" onClick={handleCotizarClick}>
-            COTIZAR AHORA
-          </Button>
-        </div>
-
-        {/* Mobile Trigger */}
-        <button className="md:hidden" onClick={() => setMobileMenu(true)}>
-          <Menu className={isDarkText ? 'text-slate-900' : 'text-white'} />
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {mobileMenu && (
-          <motion.div 
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            className="fixed inset-0 bg-slate-900 z-60 flex flex-col p-8"
-          >
-            <div className="flex justify-end"><X className="text-white w-8 h-8" onClick={() => setMobileMenu(false)} /></div>
-            <div className="flex flex-col gap-8 mt-12">
-              {navLinks.map(link => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={event => {
-                    if (onNavigate) {
-                      event.preventDefault();
-                      onNavigate(link.href);
-                    }
-                    setMobileMenu(false);
-                  }}
-                  className="text-2xl text-white font-bold"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <Button variant="accent" onClick={() => { handleCotizarClick(); setMobileMenu(false); }}>
-                COTIZAR AHORA
-              </Button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
-
-const Hero = () => {
-  const handleSolicitarEvaluacion = () => {
-    const message = encodeURIComponent(
-      'Hola, me gustaría solicitar una evaluación técnica para mis motores y generadores. ¿Podrían proporcionarme más información sobre el proceso y costos?'
-    );
-    window.open(`https://wa.me/593998799981?text=${message}`, '_blank');
-  };
-
-  const handleNuestrosServicios = () => {
-    const serviciosSection = document.getElementById('servicios');
-    if (serviciosSection) {
-      serviciosSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
-  return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-900">
-      {/* Background Image with Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="/generador.png" 
-          className="w-full h-full object-cover opacity-30" 
-          alt="Ingeniería de motores" 
-        />
-        <div className="absolute inset-0 bg-linear-to-r from-slate-900 via-slate-900/80 to-transparent"></div>
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-block px-4 py-1 bg-blue-600/20 border border-blue-500/30 text-blue-400 text-sm font-semibold rounded-full mb-6 uppercase tracking-widest">
-              Expertos en Energía Industrial
-            </span>
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white leading-tight mb-6">
-              Innovación y Tecnología en <span className="text-blue-500">Proyectos Eléctricos</span>
-            </h1>
-            <p className="text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
-              Soluciones integrales en mantenimiento, reparación y repotenciación de motores y generadores. Maximizamos la vida útil de su maquinaria con precisión técnica.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="text-lg px-10 py-4" onClick={handleSolicitarEvaluacion}>SOLICITAR EVALUACIÓN TÉCNICA</Button>
-              <Button variant="outline" className="text-white border-white hover:bg-white hover:text-slate-900" onClick={handleNuestrosServicios}>NUESTROS SERVICIOS</Button>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center p-1">
-          <div className="w-1 h-2 bg-white rounded-full"></div>
-        </div>
-      </div>
-    </section>
-  );
-};
 
 const Services = () => {
   interface ServiceItem {
@@ -307,6 +117,8 @@ const Services = () => {
                   src={s.image}
                   alt={s.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-slate-900/80 via-slate-900/30 to-transparent"></div>
               </div>
@@ -349,6 +161,8 @@ const Services = () => {
                   src={selectedService.image}
                   alt={selectedService.title}
                   className="w-full h-64 object-cover"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <button
                   type="button"
@@ -408,9 +222,11 @@ const WhyChooseUs = () => {
         <div className="relative">
           <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
             <img 
-              src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80" 
+              src="/generador3.png" 
               alt="Taller de motores"
               className="w-full h-125 object-cover"
+              loading="lazy"
+              decoding="async"
             />
           </div>
           <div className="absolute -bottom-6 -right-6 bg-blue-700 p-8 rounded-2xl text-white hidden md:block z-20">
@@ -492,13 +308,7 @@ const ContactForm = () => {
               </div>
             </div>
             
-            <div className="mt-16 pt-8 border-t border-blue-600">
-              <p className="text-blue-200 mb-4 uppercase tracking-widest text-xs font-bold">Síguenos</p>
-              <div className="flex gap-4">
-                <div className="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-white hover:text-blue-800 cursor-pointer transition-all"><FacebookIcon/></div>
-                <div className="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center hover:bg-white hover:text-blue-800 cursor-pointer transition-all"><InstagramIcon/></div>
-              </div>
-            </div>
+            <ContactSocials />
           </div>
 
           {/* Form Side */}
@@ -840,7 +650,7 @@ export default function LandingPage() {
                   transition={{ duration: 0.3 }}
                   className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-200"
                 >
-                  <img src={product.image} alt={product.title} className="w-full h-56 object-cover" />
+                  <img src={product.image} alt={product.title} className="w-full h-56 object-cover" loading="lazy" decoding="async" />
                   <div className="p-8">
                     <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-3">{product.category}</p>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">{product.title}</h3>
@@ -948,24 +758,7 @@ export default function LandingPage() {
         </>
       )}
 
-      <footer className="bg-slate-950 text-slate-500 py-12 border-t border-slate-800">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/logo_rfm.png" alt="Logo RMF" className="h-15 w-auto" />
-            </div>
-            <p className="text-sm max-w-xs text-center md:text-left">Líderes en mantenimiento industrial y soluciones energéticas desde hace más de 15 años.</p>
-          </div>
-          
-          <div className="flex gap-8 text-sm">
-            <a href="#" className="hover:text-white transition-colors">Términos</a>
-            <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors">Soporte</a>
-          </div>
-
-          <p className="text-xs">© {new Date().getFullYear()} RMF MOTOR'S INGENIERÍA. Todos los derechos reservados.</p>
-        </div>
-      </footer>
+      <Footer />
 
       <WhatsAppButton />
     </div>
