@@ -277,6 +277,7 @@ const ContactForm = () => {
   return (
     <section id="contacto" className="py-24 bg-slate-900 text-white relative">
       <div className="container mx-auto px-6">
+        <h2 className="sr-only">Contacto</h2>
         <div className="max-w-6xl mx-auto bg-slate-800 rounded-3xl overflow-hidden shadow-2xl flex flex-col md:flex-row">
           
           {/* Info Side */}
@@ -699,7 +700,7 @@ export default function LandingPage() {
                   <div key={i} className="text-center p-6">
                     <span className="text-5xl font-black text-blue-50/50 absolute -z-10 -translate-y-4 left-1/2 -translate-x-1/2">{step.n}</span>
                     <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-6 relative z-10">{step.n}</div>
-                    <h4 className="font-bold text-xl mb-3">{step.t}</h4>
+                    <h3 className="font-bold text-xl mb-3">{step.t}</h3>
                     <p className="text-slate-500 text-sm leading-relaxed">{step.d}</p>
                   </div>
                 ))}

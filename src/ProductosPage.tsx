@@ -212,7 +212,7 @@ const ProductModal = ({ product, isOpen, onClose }: { product: Product | null; i
                 <p className="text-slate-600 mb-6 leading-relaxed">{product.description}</p>
 
                 <div className="mb-6">
-                  <h4 className="font-bold text-slate-900 mb-3">Características:</h4>
+                  <h3 className="font-bold text-slate-900 mb-3">Características:</h3>
                   <ul className="space-y-2">
                     {product.features.map((feature, index) => (
                       <li key={index} className="flex items-center gap-2 text-slate-600">
@@ -479,7 +479,7 @@ export default function ProductosPage() {
               <div className="text-slate-400 mb-4">
                 <Search className="w-16 h-16 mx-auto" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">No se encontraron productos</h3>
+              <h2 className="text-xl font-bold text-slate-900 mb-2">No se encontraron productos</h2>
               <p className="text-slate-600">Intenta con otros términos de búsqueda o categorías.</p>
             </div>
           )}
@@ -504,7 +504,7 @@ export default function ProductosPage() {
               </p>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Productos</h4>
+              <h3 className="font-bold mb-4">Productos</h3>
               <ul className="space-y-2 text-sm text-slate-400">
                 <li><a href="#" className="hover:text-white transition-colors">Motores Eléctricos</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Generadores</a></li>
@@ -513,7 +513,7 @@ export default function ProductosPage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Servicios</h4>
+              <h3 className="font-bold mb-4">Servicios</h3>
               <ul className="space-y-2 text-sm text-slate-400">
                 <li><a href="#" className="hover:text-white transition-colors">Mantenimiento</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Reparaciones</a></li>
@@ -522,7 +522,7 @@ export default function ProductosPage() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-4">Contacto</h4>
+              <h3 className="font-bold mb-4">Contacto</h3>
               <div className="space-y-2 text-sm text-slate-400">
                 <p>📞 +593 99 879 9981</p>
                 <p>📧 contacto@rmfmotors.com</p>
