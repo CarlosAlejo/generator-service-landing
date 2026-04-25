@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { X, ShoppingCart, Trash2, Plus, Minus, Send, Package } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
-const WHATSAPP_NUMBER = "5491122334455";
+const WHATSAPP_NUMBER = "593998799981";
 
 export default function Cart() {
   const { cart, removeFromCart, updateQuantity, totalPrice, totalItems, clearCart, isCartOpen, setIsCartOpen } = useCart();

@@ -3,26 +3,68 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
 
-const WHATSAPP_NUMBER = '5491122334455';
-
 const contactItems = [
-  { icon: Phone, label: 'Llamanos', val: '+54 9 11 2233 4455' },
-  { icon: Mail, label: 'Email', val: 'contacto@rmfmotors.com' },
-  { icon: MapPin, label: 'Ubicacion', val: 'Parque Industrial, Buenos Aires, Argentina' },
+  { icon: Phone, label: 'Llamanos', val: '+593 99 879 9981' },
+  { icon: Mail, label: 'Email', val: 'comercial@rmfmotors.com' },
+  { icon: MapPin, label: 'Ubicacion', val: 'Ecuador' },
 ];
 
+type SubmitState = 'idle' | 'loading' | 'success' | 'error';
+
 export default function Contact() {
-  const [formData, setFormData] = useState({ nombre: '', email: '', mensaje: '' });
+  const [formData, setFormData] = useState({
+    nombre: '',
+    email: '',
+    telefono: '',
+    mensaje: '',
+  });
+  const [submitState, setSubmitState] = useState<SubmitState>('idle');
+  const [feedback, setFeedback] = useState('');
 
-  const handleWhatsAppAction = (message: string) => {
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
-  };
-
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const text = `Hola RMF Motor's! Mi nombre es ${formData.nombre}. Mi correo es ${formData.email}. Consulta: ${formData.mensaje}`;
-    handleWhatsAppAction(text);
+    setSubmitState('loading');
+    setFeedback('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const rawBody = await response.text();
+      const contentType = response.headers.get('content-type') || '';
+      const result =
+        rawBody && contentType.includes('application/json')
+          ? (JSON.parse(rawBody) as { message?: string })
+          : {};
+
+      if (!response.ok) {
+        throw new Error(
+          result.message ||
+            (rawBody && !contentType.includes('application/json')
+              ? 'El servidor devolvio una respuesta invalida.'
+              : 'No se pudo enviar el mensaje.')
+        );
+      }
+
+      setSubmitState('success');
+      setFeedback(result.message || 'Tu mensaje fue enviado correctamente.');
+      setFormData({
+        nombre: '',
+        email: '',
+        telefono: '',
+        mensaje: '',
+      });
+    } catch (error) {
+      const message =
+        error instanceof Error ? error.message : 'Ocurrio un error al enviar el mensaje.';
+      setSubmitState('error');
+      setFeedback(message);
+    }
   };
 
   return (
@@ -45,12 +87,13 @@ export default function Contact() {
               animate={{ opacity: 1, x: 0 }}
               className="text-white"
             >
-              <h2 className="mb-8 text-5xl font-bold font-display">
+              <h2 className="mb-8 font-display text-5xl font-bold">
                 Hablemos de tu <br />
                 <span className="text-brand-secondary">Proximo Proyecto</span>
               </h2>
               <p className="mb-12 text-xl leading-relaxed text-slate-300">
-                Nuestro equipo tecnico esta listo para analizar tus necesidades y proponer la mejor solucion tecnica y economica.
+                Nuestro equipo tecnico esta listo para analizar tus necesidades y proponer la mejor
+                solucion tecnica y economica.
               </p>
 
               <div className="space-y-8">
@@ -60,7 +103,9 @@ export default function Contact() {
                       <item.icon size={24} />
                     </div>
                     <div>
-                      <div className="mb-1 text-sm font-bold uppercase tracking-widest text-brand-secondary">{item.label}</div>
+                      <div className="mb-1 text-sm font-bold uppercase tracking-widest text-brand-secondary">
+                        {item.label}
+                      </div>
                       <div className="text-lg font-medium">{item.val}</div>
                     </div>
                   </div>
@@ -81,6 +126,7 @@ export default function Contact() {
                     <input
                       type="text"
                       placeholder="Tu nombre"
+                      value={formData.nombre}
                       className="w-full rounded-xl border border-slate-200 bg-slate-50 p-4 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary"
                       required
                       onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
@@ -91,6 +137,7 @@ export default function Contact() {
                     <input
                       type="email"
                       placeholder="tu@email.com"
+                      value={formData.email}
                       className="w-full rounded-xl border border-slate-200 bg-slate-50 p-4 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary"
                       required
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -98,20 +145,45 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="space-y-2">
+                  <label className="ml-1 text-sm font-bold text-slate-700">Telefono</label>
+                  <input
+                    type="tel"
+                    placeholder="+593..."
+                    value={formData.telefono}
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 p-4 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary"
+                    onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
+                  />
+                </div>
+                <div className="space-y-2">
                   <label className="ml-1 text-sm font-bold text-slate-700">Mensaje</label>
                   <textarea
                     placeholder="En que podemos ayudarte?"
                     rows={4}
+                    value={formData.mensaje}
                     className="w-full rounded-xl border border-slate-200 bg-slate-50 p-4 transition-all focus:outline-none focus:ring-2 focus:ring-brand-primary"
                     required
                     onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
                   />
                 </div>
+
+                {feedback ? (
+                  <div
+                    className={`rounded-xl px-4 py-3 text-sm font-medium ${
+                      submitState === 'success'
+                        ? 'bg-emerald-50 text-emerald-700'
+                        : 'bg-red-50 text-red-700'
+                    }`}
+                  >
+                    {feedback}
+                  </div>
+                ) : null}
+
                 <button
                   type="submit"
-                  className="flex w-full items-center justify-center gap-3 rounded-xl bg-brand-primary py-5 font-bold text-white shadow-lg shadow-brand-primary/20 transition-all hover:opacity-90"
+                  disabled={submitState === 'loading'}
+                  className="flex w-full items-center justify-center gap-3 rounded-xl bg-brand-primary py-5 font-bold text-white shadow-lg shadow-brand-primary/20 transition-all hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                  Enviar por WhatsApp
+                  {submitState === 'loading' ? 'Enviando...' : 'Enviar correo'}
                   <ChevronRight size={20} />
                 </button>
               </form>

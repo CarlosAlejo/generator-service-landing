@@ -1,8 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, Plus, Minus, Search, Tag, Package, X, ChevronRight, LayoutGrid } from 'lucide-react';
-import { useCart } from '../context/CartContext';
-import type { Product } from '../context/CartContext';
+import { useCart, Product } from '../context/CartContext';
 
 const controlModules: Product[] = [
   // COMAP
@@ -118,6 +117,12 @@ export default function Products() {
   const { addToCart, cart, updateQuantity } = useCart();
   const [searchTerm, setSearchTerm] = useState('');
   const [activeModal, setActiveModal] = useState<string | null>(null);
+  const [modalBrandFilter, setModalBrandFilter] = useState<string | null>(null);
+
+  const handleOpenModal = (modalId: string) => {
+    setActiveModal(modalId);
+    setModalBrandFilter(null);
+  };
 
   const filteredResults = allProducts.filter((p) =>
     p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -214,7 +219,7 @@ export default function Products() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
-                  onClick={() => setActiveModal('modules')}
+                  onClick={() => handleOpenModal('modules')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
@@ -235,7 +240,7 @@ export default function Products() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
-                  onClick={() => setActiveModal('chargers')}
+                  onClick={() => handleOpenModal('chargers')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
@@ -256,7 +261,7 @@ export default function Products() {
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
                   className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
-                  onClick={() => setActiveModal('preheaters')}
+                  onClick={() => handleOpenModal('preheaters')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
@@ -278,7 +283,7 @@ export default function Products() {
                    <motion.div 
                     whileHover={{ scale: 1.02 }}
                     className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary group cursor-pointer flex flex-col justify-end p-8"
-                    onClick={() => setActiveModal('avr')}
+                    onClick={() => handleOpenModal('avr')}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-80" />
                     <img 
@@ -295,7 +300,7 @@ export default function Products() {
                   <motion.div 
                     whileHover={{ scale: 1.02 }}
                     className="relative overflow-hidden rounded-[2.5rem] bg-slate-800 group cursor-pointer flex flex-col justify-end p-8"
-                    onClick={() => setActiveModal('speed')}
+                    onClick={() => handleOpenModal('speed')}
                   >
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
                     <img 
@@ -313,89 +318,7 @@ export default function Products() {
             </div>
           </section>
 
-          {/* Other Products Section */}
-          <section className="py-20 bg-slate-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex flex-col items-center mb-16 space-y-4">
-                 <div className="bg-brand-primary/10 p-4 rounded-3xl text-brand-primary">
-                    <LayoutGrid size={32} />
-                 </div>
-                 <h2 className="text-4xl font-black text-slate-900 font-display tracking-tight uppercase">Otros Repuestos y Equipos</h2>
-                 <div className="h-1 w-24 bg-brand-primary rounded-full"></div>
-              </div>
 
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-                {generalProducts.map((product) => {
-                  const cartItem = cart.find((item) => item.id === product.id);
-                  
-                  return (
-                    <motion.div 
-                      key={product.id}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      whileHover={{ y: -10 }}
-                      className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-200 transition-all h-full flex flex-col group"
-                    >
-                      <div className="flex items-start justify-between mb-8">
-                        <div className="bg-slate-50 p-5 rounded-2xl text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-500 shadow-inner">
-                           <Package size={28} />
-                        </div>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 shadow-sm">
-                          {product.sku}
-                        </span>
-                      </div>
-
-                      <div className="mb-4">
-                        <span className="text-xs font-black text-brand-primary uppercase tracking-[0.3em] opacity-80 mb-2 block">
-                          {product.category}
-                        </span>
-                        <h3 className="text-2xl font-black text-slate-900 mt-2 mb-4 font-display leading-tight tracking-tight">
-                          {product.name}
-                        </h3>
-                        <p className="text-slate-500 text-sm mb-8 leading-relaxed font-medium line-clamp-2">
-                          {product.description}
-                        </p>
-                      </div>
-
-                      <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
-                        <div>
-                          <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest block mb-2">Precio sugerido</span>
-                          <span className="text-3xl font-black text-slate-900 font-display">
-                            ${product.price.toLocaleString()}
-                          </span>
-                        </div>
-
-                        {cartItem ? (
-                          <div className="flex items-center gap-4 bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-inner">
-                            <button 
-                              onClick={() => updateQuantity(product.id, cartItem.quantity - 1)}
-                              className="w-10 h-10 flex items-center justify-center bg-white rounded-xl hover:bg-red-50 hover:text-red-500 transition-all text-brand-primary shadow-sm active:scale-95"
-                            >
-                              <Minus size={20} />
-                            </button>
-                            <span className="font-black text-slate-900 w-8 text-center text-lg">{cartItem.quantity}</span>
-                            <button 
-                              onClick={() => updateQuantity(product.id, cartItem.quantity + 1)}
-                              className="w-10 h-10 flex items-center justify-center bg-white rounded-xl hover:bg-emerald-50 hover:text-emerald-500 transition-all text-brand-primary shadow-sm active:scale-95"
-                            >
-                              <Plus size={20} />
-                            </button>
-                          </div>
-                        ) : (
-                          <button 
-                            onClick={() => addToCart(product)}
-                            className="bg-slate-900 text-white w-16 h-16 rounded-2xl hover:bg-brand-primary transition-all shadow-xl hover:shadow-brand-primary/30 flex items-center justify-center group/btn active:scale-95"
-                          >
-                            <ShoppingCart size={24} className="group-hover/btn:scale-110 transition-transform" />
-                          </button>
-                        )}
-                      </div>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          </section>
         </>
       ) : (
         /* Search Results View */
@@ -449,10 +372,8 @@ export default function Products() {
 
                       <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
                         <div>
-                          <span className="text-[10px] text-slate-400 uppercase font-black tracking-widest block mb-2">Precio sugerido</span>
-                          <span className="text-3xl font-black text-slate-900 font-display">
-                            ${product.price.toLocaleString()}
-                          </span>
+                          <span className="text-[10px] text-brand-secondary font-black uppercase tracking-widest block bg-brand-secondary/10 px-3 py-1 rounded-lg border border-brand-secondary/20">Original</span>
+                          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mt-2">Garantizado</span>
                         </div>
 
                         {cartItem ? (
@@ -538,8 +459,28 @@ export default function Products() {
                     <div className="space-y-6">
                        <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] block border-b border-slate-100 pb-3">Marcas Partner</h4>
                        <div className="flex flex-wrap gap-2">
+                         <button 
+                           onClick={() => setModalBrandFilter(null)}
+                           className={`px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border transition-all ${
+                             modalBrandFilter === null 
+                               ? 'bg-brand-primary text-white border-brand-primary shadow-lg shadow-brand-primary/20' 
+                               : 'bg-slate-50 text-slate-600 border-slate-100 hover:border-brand-primary/30'
+                           }`}
+                         >
+                           Todas
+                         </button>
                          {modalData.brands.map(b => (
-                           <span key={b} className="px-3 py-2 bg-slate-50 rounded-lg text-[10px] font-black text-slate-600 uppercase tracking-widest border border-slate-100">{b}</span>
+                           <button 
+                             key={b} 
+                             onClick={() => setModalBrandFilter(b)}
+                             className={`px-3 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest border transition-all ${
+                               modalBrandFilter === b 
+                                 ? 'bg-brand-primary text-white border-brand-primary shadow-lg shadow-brand-primary/20' 
+                                 : 'bg-slate-50 text-slate-600 border-slate-100 hover:border-brand-primary/30'
+                             }`}
+                           >
+                             {b}
+                           </button>
                          ))}
                        </div>
                     </div>
@@ -551,7 +492,9 @@ export default function Products() {
                   {/* Right: Product Grid */}
                   <div className="lg:col-span-3 space-y-10">
                      <div className="grid sm:grid-cols-2 gap-6">
-                        {modalData.products.map(item => {
+                        {modalData.products
+                          .filter(item => !modalBrandFilter || item.sku.toLowerCase().includes(modalBrandFilter.toLowerCase()) || item.name.toLowerCase().includes(modalBrandFilter.toLowerCase()))
+                          .map(item => {
                           const cartItem = cart.find(ci => ci.id === item.id);
                           const brand = modalData.brands.find(b => item.sku.toLowerCase().includes(b.toLowerCase())) || modalData.brands[0];
                           
@@ -560,7 +503,7 @@ export default function Products() {
                               <div>
                                 <div className="flex justify-between items-start mb-4">
                                   <span className="text-[9px] font-black text-brand-primary/60 uppercase tracking-[0.2em]">{brand}</span>
-                                  <span className="text-xl font-black text-slate-900 group-hover:text-brand-primary transition-colors">${item.price.toLocaleString()}</span>
+                                  <span className="text-[10px] font-black text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-2 py-1 rounded">Stock Disponible</span>
                                 </div>
                                 <h5 className="font-black text-slate-900 text-xl leading-tight mb-3 font-display uppercase tracking-tight">{item.name}</h5>
                                 <p className="text-slate-500 text-xs mb-8 leading-relaxed font-medium ">{item.description}</p>
@@ -613,3 +556,4 @@ export default function Products() {
     </div>
   );
 }
+

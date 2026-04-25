@@ -50,12 +50,12 @@ export default function BrandCarousel() {
           {duplicatedBrands.map((brand, i) => (
             <div 
               key={i} 
-              className="flex items-center justify-center mx-6 px-8 py-6 min-w-50 h-24 bg-slate-50/50 rounded-2xl border border-slate-100 group hover:bg-white hover:border-brand-primary/30 transition-all cursor-default overflow-hidden"
+              className="flex items-center justify-center mx-6 px-5 py-3 min-w-50 h-28 bg-slate-50/50 rounded-2xl border border-slate-100 cursor-default overflow-hidden"
             >
               <img 
                 src={brand.logo} 
                 alt={`${brand.name} logo`} 
-                className="max-h-12 w-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-500 opacity-60 group-hover:opacity-100"
+                className="max-h-20 max-w-full w-auto object-contain opacity-100"
                 referrerPolicy="no-referrer"
               />
             </div>

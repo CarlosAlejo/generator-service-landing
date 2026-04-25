@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Settings, Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import Cart from './Cart';
 
-const WHATSAPP_NUMBER = "5491122334455";
+const WHATSAPP_NUMBER = "593998799981";
+const LOGO_SRC = "/Logo%20Vector%20RMF1.svg";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,14 +35,12 @@ export default function Navbar() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <Link to="/" className="flex items-center gap-3">
-              <div className="bg-brand-primary p-2 rounded-lg shadow-lg shadow-brand-primary/20">
-                <Settings className="text-white w-6 h-6" />
-              </div>
-              <div>
-                <h1 className="text-xl font-bold leading-none text-slate-900 tracking-tighter font-display">RMF MOTOR'S</h1>
-                <p className="text-[10px] tracking-[0.3em] text-brand-secondary font-bold uppercase">Ingenieria</p>
-              </div>
+            <Link to="/" className="flex items-center">
+              <img
+                src={LOGO_SRC}
+                alt="RMF Motor's Ingenieria"
+                className="h-12 w-auto sm:h-14"
+              />
             </Link>
           </motion.div>
 

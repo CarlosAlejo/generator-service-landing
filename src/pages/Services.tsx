@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Settings, Zap, ShieldCheck, ChevronRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 
-const WHATSAPP_NUMBER = "5491122334455";
+const WHATSAPP_NUMBER = "593998799981";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
@@ -18,6 +17,51 @@ const staggerContainer = {
   }
 };
 
+const services = [
+  {
+    title: "MANTENIMIENTO PREDICTIVO DE GRUPOS ELECTROGENOS",
+    desc: "Anticipamos fallas en grupos electrogenos mediante analisis tecnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalias antes de que se conviertan en fallas criticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y garantiza la continuidad operativa de sus equipos.",
+    imageSrc: "/services/ELECTROGENOS.svg",
+    imageAlt: "Servicio de grupos electrogenos",
+    message: "Hola, quiero consultar sobre Mantenimiento Predictivo.",
+  },
+  {
+    title: "MANTENIMIENTO PREVENTIVO",
+    desc: "Realizamos inspecciones periodicas y servicios programados en grupos electrogenos para asegurar su correcto funcionamiento, prolongar su vida util y evitar fallas inesperadas.",
+    imageSrc: "/services/PREVENTIVO.svg",
+    imageAlt: "Servicio de mantenimiento preventivo",
+    message: "Hola, necesito asesoria sobre Mantenimiento Preventivo.",
+  },
+  {
+    title: "MANTENIMIENTO CORRECTIVO",
+    desc: "Atendemos y solucionamos fallas electricas y mecanicas en grupos electrogenos de manera rapida y eficiente, restableciendo su operatividad en el menor tiempo posible.",
+    imageSrc: "/services/CORRECTIVO.svg",
+    imageAlt: "Servicio de mantenimiento correctivo",
+    message: "Hola, solicito informacion sobre Mantenimiento Correctivo.",
+  },
+  {
+    title: "CONTROL Y AUTOMATIZACION",
+    desc: "Implementamos soluciones de automatizacion y sistemas de control para grupos electrogenos, optimizando su operacion, monitoreo y respuesta ante fallas. Integramos tecnologia que permite una gestion eficiente, segura y remota.",
+    imageSrc: encodeURI("/services/AUTOMATIZACIÓN.svg"),
+    imageAlt: "Servicio de control y automatizacion",
+    message: "Hola, quiero consultar sobre Control y Automatizacion.",
+  },
+  {
+    title: "DIAGNOSTICO DE MOTORES ELECTRONICO",
+    desc: "Realizamos diagnostico avanzado en motores electronicos de diferentes marcas, detectando fallas de manera precisa para optimizar su rendimiento y mantener una operacion confiable.",
+    imageSrc: encodeURI("/services/ELECTRÓNICO.svg"),
+    imageAlt: "Servicio de diagnostico electronico",
+    message: "Hola, necesito asesoria sobre Diagnostico de Motores Electronicos.",
+  },
+  {
+    title: "ANALISIS DE ACEITE EN LABORATORIO",
+    desc: "Evaluamos el estado del aceite y de los componentes internos del equipo mediante pruebas especializadas, permitiendo detectar desgaste, contaminacion y posibles fallas.",
+    imageSrc: "/services/LABORATORIO.svg",
+    imageAlt: "Servicio de analisis de laboratorio",
+    message: "Hola, solicito informacion sobre Analisis de Aceite en Laboratorio.",
+  },
+];
+
 export default function Services() {
   const handleWhatsAppAction = (message: string) => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -26,46 +70,43 @@ export default function Services() {
 
   return (
     <div className="pt-20">
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+      <section className="bg-slate-50 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-20 text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <h3 className="text-brand-primary font-bold tracking-[0.2em] text-sm mb-4 uppercase">Nuestras Capacidades</h3>
-              <h2 className="text-4xl font-bold text-slate-900 mb-6 font-display">Servicios Especializados</h2>
-              <div className="w-20 h-1.5 bg-brand-primary mx-auto rounded-full mb-8"></div>
-              <p className="text-slate-500 max-w-2xl mx-auto text-lg">
-                Ofrecemos un catálogo completo de servicios diseñados para mantener tu infraestructura industrial operando al máximo rendimiento.
+              <h3 className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-brand-primary">
+                Nuestras Capacidades
+              </h3>
+              <h2 className="mb-6 font-display text-4xl font-bold text-slate-900">
+                Servicios Especializados
+              </h2>
+              <div className="mx-auto mb-8 h-1.5 w-20 rounded-full bg-brand-primary"></div>
+              <p className="mx-auto max-w-2xl text-lg text-slate-500">
+                Ofrecemos un catalogo completo de servicios disenados para mantener tu
+                infraestructura industrial operando al maximo rendimiento.
               </p>
             </motion.div>
           </div>
 
-          <motion.div 
+          <motion.div
             variants={staggerContainer}
             initial="initial"
             animate="animate"
-            className="grid md:grid-cols-3 gap-8"
+            className="grid gap-8 md:grid-cols-2 xl:grid-cols-3"
           >
-            <ServiceCard 
-              icon={<Settings className="w-8 h-8 text-white"/>}
-              title="Desarrollo de Proyectos"
-              desc="Diseño y ejecución de proyectos de ingeniería desde la conceptualización hasta la puesta en marcha final."
-              onAction={() => handleWhatsAppAction("Hola, quiero consultar sobre Desarrollo de Proyectos.")}
-            />
-            <ServiceCard 
-              icon={<Zap className="w-8 h-8 text-white"/>}
-              title="Automatización Industrial"
-              desc="Implementación de sistemas de control inteligente y mantenimiento especializado de motores eléctricos."
-              onAction={() => handleWhatsAppAction("Hola, necesito asesoría sobre Motores y Automatización.")}
-            />
-            <ServiceCard 
-              icon={<ShieldCheck className="w-8 h-8 text-white"/>}
-              title="Mantenimiento Preventivo"
-              desc="Planes estratégicos de mantenimiento para asegurar la continuidad operativa y reducir costos por paradas."
-              onAction={() => handleWhatsAppAction("Hola, solicito información sobre Mantenimiento Industrial.")}
-            />
+            {services.map((service) => (
+              <ServiceCard
+                key={service.title}
+                imageSrc={service.imageSrc}
+                imageAlt={service.imageAlt}
+                title={service.title}
+                desc={service.desc}
+                onAction={() => handleWhatsAppAction(service.message)}
+              />
+            ))}
           </motion.div>
         </div>
       </section>
@@ -73,25 +114,45 @@ export default function Services() {
   );
 }
 
-function ServiceCard({ icon, title, desc, onAction }: { icon: React.ReactNode, title: string, desc: string, onAction: () => void }) {
+function ServiceCard({
+  imageSrc,
+  imageAlt,
+  title,
+  desc,
+  onAction,
+}: {
+  imageSrc: string,
+  imageAlt: string,
+  title: string,
+  desc: string,
+  onAction: () => void,
+}) {
   return (
-    <motion.div 
+    <motion.div
       variants={fadeIn}
-      className="bg-white p-10 rounded-3xl shadow-xl shadow-slate-100 hover:shadow-2xl hover:shadow-brand-primary/10 transition-all group flex flex-col items-start border border-slate-100"
+      className="group flex flex-col items-start rounded-3xl border border-slate-100 bg-white p-10 shadow-xl shadow-slate-100 transition-all hover:-translate-y-1 hover:shadow-2xl hover:shadow-brand-primary/10"
     >
-      <div className="bg-slate-900 p-5 rounded-2xl mb-8 group-hover:bg-brand-primary transition-all group-hover:scale-110 duration-500 shadow-lg">
-        {icon}
-      </div>
-      <h3 className="text-2xl font-bold mb-4 text-slate-900 leading-tight font-display">{title}</h3>
-      <p className="text-slate-500 mb-8 text-base flex-grow leading-relaxed">
+      <motion.div
+        animate={{ y: [0, -4, 0] }}
+        transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+        className="mb-8 flex h-28 w-28 items-center justify-center rounded-[1.7rem] bg-brand-primary p-5 shadow-xl shadow-brand-primary/30 transition-transform duration-500 group-hover:scale-110"
+      >
+        <img
+          src={imageSrc}
+          alt={imageAlt}
+          className="h-full w-full object-contain"
+        />
+      </motion.div>
+      <h3 className="mb-4 font-display text-2xl font-bold leading-tight text-slate-900">{title}</h3>
+      <p className="mb-8 flex-grow text-base leading-relaxed text-slate-500">
         {desc}
       </p>
-      <button 
+      <button
         onClick={onAction}
-        className="text-brand-primary font-bold flex items-center gap-2 group/btn hover:opacity-80 transition-colors"
+        className="group/btn flex items-center gap-2 font-bold text-brand-primary transition-colors hover:opacity-80"
       >
         Consultar ahora
-        <ChevronRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+        <ChevronRight size={18} className="transition-transform group-hover/btn:translate-x-1" />
       </button>
     </motion.div>
   );
