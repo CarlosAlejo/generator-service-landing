@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 const WHATSAPP_NUMBER = '593998799981';
 const WHATSAPP_MESSAGE =
-  'Hola, me gustaria recibir informacion sobre sus servicios.';
+  'Hola, me gustaría recibir información sobre sus servicios.';
 
 export default function WhatsAppFloat() {
   const href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;

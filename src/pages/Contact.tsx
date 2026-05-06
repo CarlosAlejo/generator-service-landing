@@ -2,14 +2,38 @@ import type { FormEvent } from 'react';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Mail, MapPin, Phone } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const contactItems = [
-  { icon: Phone, label: 'Llamanos', val: '+593 99 879 9981' },
+  { icon: Phone, label: 'Llámanos', val: '+593 99 879 9981', href: 'tel:+593998799981' },
   { icon: Mail, label: 'Email', val: 'comercial@rmfmotors.com' },
-  { icon: MapPin, label: 'Ubicacion', val: 'Ecuador' },
+  { icon: MapPin, label: 'Ubicación', val: 'Ecuador' },
 ];
 
 type SubmitState = 'idle' | 'loading' | 'success' | 'error';
+
+const CONTACT_API_URL =
+  import.meta.env.VITE_CONTACT_API_URL?.trim() || '/api/contact';
+const CONTACT_EMAIL = 'comercial@rmfmotors.com';
+
+function buildMailtoUrl(formData: {
+  nombre: string;
+  email: string;
+  telefono: string;
+  mensaje: string;
+}) {
+  const subject = `Nuevo contacto RMF Motors - ${formData.nombre}`;
+  const body = [
+    `Nombre: ${formData.nombre}`,
+    `Email: ${formData.email}`,
+    `Teléfono: ${formData.telefono || 'No indicado'}`,
+    '',
+    'Mensaje:',
+    formData.mensaje,
+  ].join('\n');
+
+  return `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -21,13 +45,21 @@ export default function Contact() {
   const [submitState, setSubmitState] = useState<SubmitState>('idle');
   const [feedback, setFeedback] = useState('');
 
+  const fallbackToEmailClient = () => {
+    window.location.href = buildMailtoUrl(formData);
+    setSubmitState('success');
+    setFeedback(
+      'No pudimos conectar con el servidor de envío. Abrimos tu cliente de correo para completar el mensaje.'
+    );
+  };
+
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitState('loading');
     setFeedback('');
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch(CONTACT_API_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,11 +74,16 @@ export default function Contact() {
           ? (JSON.parse(rawBody) as { message?: string })
           : {};
 
+      if (response.status === 404) {
+        fallbackToEmailClient();
+        return;
+      }
+
       if (!response.ok) {
         throw new Error(
           result.message ||
             (rawBody && !contentType.includes('application/json')
-              ? 'El servidor devolvio una respuesta invalida.'
+              ? 'El servidor devolvió una respuesta invalida.'
               : 'No se pudo enviar el mensaje.')
         );
       }
@@ -60,8 +97,13 @@ export default function Contact() {
         mensaje: '',
       });
     } catch (error) {
+      if (error instanceof TypeError) {
+        fallbackToEmailClient();
+        return;
+      }
+
       const message =
-        error instanceof Error ? error.message : 'Ocurrio un error al enviar el mensaje.';
+        error instanceof Error ? error.message : 'Ocurrió un error al enviar el mensaje.';
       setSubmitState('error');
       setFeedback(message);
     }
@@ -69,6 +111,11 @@ export default function Contact() {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Contacto - Solicite su Presupuesto"
+        description="Póngase en contacto con RMF Motor's Ingeniería. Solicite asesoramiento técnico y presupuestos personalizados para sus proyectos de energía y mantenimiento industrial."
+        canonical="/contacto"
+      />
       <section className="relative flex min-h-[80vh] items-center overflow-hidden py-24">
         <div className="absolute inset-0 z-0">
           <img
@@ -89,11 +136,11 @@ export default function Contact() {
             >
               <h2 className="mb-8 font-display text-5xl font-bold">
                 Hablemos de tu <br />
-                <span className="text-brand-secondary">Proximo Proyecto</span>
+                <span className="text-slate-100">Proximo Proyecto</span>
               </h2>
               <p className="mb-12 text-xl leading-relaxed text-slate-300">
-                Nuestro equipo tecnico esta listo para analizar tus necesidades y proponer la mejor
-                solucion tecnica y economica.
+                Nuestro equipo técnico esta listo para analizar tus necesidades y proponer la mejor
+                solución técnica y economica.
               </p>
 
               <div className="space-y-8">
@@ -103,10 +150,22 @@ export default function Contact() {
                       <item.icon size={24} />
                     </div>
                     <div>
-                      <div className="mb-1 text-sm font-bold uppercase tracking-widest text-brand-secondary">
+                      <div className="mb-1 text-sm font-bold uppercase tracking-widest text-slate-200">
                         {item.label}
                       </div>
-                      <div className="text-lg font-medium">{item.val}</div>
+                      {item.href ? (
+                        <a
+                          href={item.href}
+                          className="inline-flex items-center gap-2 text-lg font-semibold tracking-[0.18em] text-white transition-colors hover:text-brand-secondary"
+                        >
+                          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm tracking-[0.28em]">
+                            +593
+                          </span>
+                          <span>99 879 9981</span>
+                        </a>
+                      ) : (
+                        <div className="text-lg font-medium">{item.val}</div>
+                      )}
                     </div>
                   </div>
                 ))}
@@ -118,7 +177,7 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               className="rounded-3xl bg-white p-10 shadow-2xl"
             >
-              <h3 className="mb-8 text-2xl font-bold text-slate-900">Envia un mensaje</h3>
+              <h3 className="mb-8 text-2xl font-bold text-slate-900">Envía un mensaje</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="space-y-2">

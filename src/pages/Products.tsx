@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, Plus, Minus, Search, Tag, Package, X, ChevronRight, LayoutGrid } from 'lucide-react';
-import { useCart, Product } from '../context/CartContext';
+import { ShoppingCart, Plus, Minus, Search, Tag, Package, X, ChevronRight } from 'lucide-react';
+import { useCart, type Product } from '../context/CartContext';
+import SEO from '../components/SEO';
 
 const controlModules: Product[] = [
   // COMAP
@@ -44,64 +45,43 @@ const preheaterProducts: Product[] = [
 ];
 
 const avrProducts: Product[] = [
-  { id: 'avr1', name: 'AVR Leroy Somer', category: 'AVR', price: 180, description: 'Tarjeta reguladora de voltaje de alta precisión', sku: 'AVR-LS' },
-  { id: 'avr2', name: 'AVR Stamford', category: 'AVR', price: 195, description: 'Tarjeta reguladora de voltaje original', sku: 'AVR-STM' },
-  { id: 'avr3', name: 'AVR Caterpillar', category: 'AVR', price: 240, description: 'Tarjeta reguladora de voltaje para motores CAT', sku: 'AVR-CAT' },
-  { id: 'avr4', name: 'AVR Mecc Alte', category: 'AVR', price: 175, description: 'Tarjeta reguladora de voltaje regulada', sku: 'AVR-MA' },
-  { id: 'avr5', name: 'AVR Mebay', category: 'AVR', price: 110, description: 'Tarjeta reguladora de voltaje económica', sku: 'AVR-MEB' },
-  { id: 'avr6', name: 'AVR Marelli', category: 'AVR', price: 165, description: 'Tarjeta reguladora de voltaje Marelli', sku: 'AVR-MAR' },
+  { id: 'avr1', name: 'Tarjeta Reguladora Leroy Somer', category: 'Reguladores de Voltaje', price: 180, description: 'Tarjeta reguladora de voltaje de alta precisión', sku: 'AVR-LS' },
+  { id: 'avr2', name: 'Tarjeta Reguladora Stamford', category: 'Reguladores de Voltaje', price: 195, description: 'Tarjeta reguladora de voltaje original', sku: 'AVR-STM' },
+  { id: 'avr3', name: 'Tarjeta Reguladora Caterpillar', category: 'Reguladores de Voltaje', price: 240, description: 'Tarjeta reguladora de voltaje para motores CAT', sku: 'AVR-CAT' },
+  { id: 'avr4', name: 'Tarjeta Reguladora Mecc Alte', category: 'Reguladores de Voltaje', price: 175, description: 'Tarjeta reguladora de voltaje regulada', sku: 'AVR-MA' },
+  { id: 'avr5', name: 'Tarjeta Reguladora Mebay', category: 'Reguladores de Voltaje', price: 110, description: 'Tarjeta reguladora de voltaje económica', sku: 'AVR-MEB' },
+  { id: 'avr6', name: 'Tarjeta Reguladora Marelli', category: 'Reguladores de Voltaje', price: 165, description: 'Tarjeta reguladora de voltaje Marelli', sku: 'AVR-MAR' },
 ];
 
 const speedProducts: Product[] = [
-  { id: 'sc1', name: 'Regulador Leroy Somer', category: 'Velocidad', price: 220, description: 'Tarjeta reguladora de velocidad electrónica', sku: 'SPD-LS' },
-  { id: 'sc2', name: 'Regulador Stamford', category: 'Velocidad', price: 210, description: 'Tarjeta de control de velocidad para alternador', sku: 'SPD-STM' },
-  { id: 'sc3', name: 'Regulador Caterpillar', category: 'Velocidad', price: 310, description: 'Módulo de control de velocidad CAT', sku: 'SPD-CAT' },
-  { id: 'sc4', name: 'Regulador Mecc Alte', category: 'Velocidad', price: 190, description: 'Tarjeta de velocidad Mecc Alte', sku: 'SPD-MA' },
-  { id: 'sc5', name: 'Regulador Mebay', category: 'Velocidad', price: 140, description: 'Gobernador de velocidad electrónico Mebay', sku: 'SPD-MEB' },
-  { id: 'sc6', name: 'Regulador Marelli', category: 'Velocidad', price: 185, description: 'Control de velocidad Marelli', sku: 'SPD-MAR' },
+  { id: 'sc1', name: 'Tarjeta de Velocidad Cummins', category: 'Tarjetas de Velocidad', price: 230, description: 'Controlador de velocidad electrónico para motores Cummins', sku: 'SPD-CUM' },
+  { id: 'sc2', name: 'Tarjeta de Velocidad GAC', category: 'Tarjetas de Velocidad', price: 250, description: 'Unidad de control de velocidad GAC original de alta precisión', sku: 'SPD-GAC' },
+  { id: 'sc3', name: 'Tarjeta de Velocidad Woodward', category: 'Tarjetas de Velocidad', price: 280, description: 'Módulo de control de velocidad Woodward para aplicaciones industriales', sku: 'SPD-WW' },
 ];
 
-const generalProducts: Product[] = [
-  {
-    id: '1',
-    name: 'Generador Diésel Cummins 50kVA',
-    category: 'Generadores',
-    price: 15400,
-    description: 'Generador de alta eficiencia para uso industrial continuo.',
-    sku: 'GEN-CUM-50',
-  },
-  {
-    id: '2',
-    name: 'Filtro de Aire Fleetguard AF25139',
-    category: 'Repuestos',
-    price: 85,
-    description: 'Filtro de aire de alta capacidad para motores Cummins.',
-    sku: 'FLT-AF25139',
-  },
-  {
-    id: '3',
-    name: 'Alternador Leroy Somer TAL-042-F',
-    category: 'Alternadores',
-    price: 2100,
-    description: 'Alternador trifásico para grupos electrógenos.',
-    sku: 'ALT-LS-042',
-  },
-  {
-    id: '5',
-    name: 'Bomba de Agua Perkins U5MW0194',
-    category: 'Repuestos',
-    price: 120,
-    description: 'Bomba de agua original para motores serie 1100.',
-    sku: 'WP-PERK-U5',
-  },
-  {
-    id: '6',
-    name: 'Aceite Motor Total 15W40 Ruby (20L)',
-    category: 'Lubricantes',
-    price: 180,
-    description: 'Lubricante premium para motores diésel pesados.',
-    sku: 'LUB-TOT-15W40',
-  },
+const oilPressureSensors: Product[] = [
+  { id: 'ops1', name: 'Sensor de Presión de Aceite 0 - 10 Bar', category: 'Sensores de Presión', price: 45, description: 'Sensor de presión de aceite de alta precisión para monitoreo industrial.', sku: 'OPS-10B' },
+  { id: 'ops2', name: 'Sensor de Presión de Aceite 5 V', category: 'Sensores de Presión', price: 50, description: 'Sensor de presión con salida de señal de 5V para módulos electrónicos.', sku: 'OPS-5V' },
+  { id: 'ops3', name: 'Sensor de Presión de Aceite Multimarca', category: 'Sensores de Presión', price: 40, description: 'Sensor de presión universal compatible con diversas marcas de motores.', sku: 'OPS-UNI' },
+];
+
+const temperatureSensors: Product[] = [
+  { id: 'ts1', name: 'Sensor de Temperatura 40°C – 120°C', category: 'Sensores de Temperatura', price: 35, description: 'Sensor de temperatura de alta sensibilidad para sistemas de refrigeración.', sku: 'TEMP-120C' },
+  { id: 'ts2', name: 'Sensor de Temperatura Multimarca Estándar', category: 'Sensores de Temperatura', price: 38, description: 'Sensor universal de temperatura para motores diesel industriales.', sku: 'TEMP-UNI' },
+];
+
+const speedSensors: Product[] = [
+  { id: 'ss1', name: 'Sensor de Velocidad Cummins', category: 'Sensores de Velocidad', price: 55, description: 'Pickup magnético de alta precisión para motores Cummins.', sku: 'SS-CUM' },
+  { id: 'ss2', name: 'Sensor de Velocidad Perkins', category: 'Sensores de Velocidad', price: 60, description: 'Sensor de revoluciones especializado para aplicaciones Perkins.', sku: 'SS-PERK' },
+  { id: 'ss3', name: 'Sensor de Velocidad Caterpillar', category: 'Sensores de Velocidad', price: 70, description: 'Sensor magnético reforzado para condiciones extremas CAT.', sku: 'SS-CAT' },
+  { id: 'ss4', name: 'Sensor de Velocidad John Deere', category: 'Sensores de Velocidad', price: 65, description: 'Pickup magnético original para motores John Deere.', sku: 'SS-JD' },
+];
+
+const totalProducts: Product[] = [
+  { id: 'total1', name: 'Aceite Total Rubia TIR 7400 15W40 - API CI4', category: 'Lubricantes', price: 160, description: 'Aceite lubricante de alto rendimiento para motores diesel pesados.', sku: 'TOT-RUB-7400' },
+  { id: 'total2', name: 'Aceite Total Rubia Optima 1100 15W40 - API CK4', category: 'Lubricantes', price: 185, description: 'Lubricante premium de última generación con tecnología Low-SAPS.', sku: 'TOT-RUB-1100' },
+  { id: 'total3', name: 'Refrigerante Total Coolelf Organic -26°C', category: 'Refrigerantes', price: 45, description: 'Líquido refrigerante orgánico de larga duración, protección hasta -26°C.', sku: 'TOT-COOL-26' },
+  { id: 'total4', name: 'Refrigerante Total Coolelf Auto Supra -37°C', category: 'Refrigerantes', price: 55, description: 'Refrigerante de alta gama con tecnología orgánica OAT, protección hasta -37°C.', sku: 'TOT-COOL-37' },
 ];
 
 const allProducts = [
@@ -110,7 +90,10 @@ const allProducts = [
   ...preheaterProducts,
   ...avrProducts,
   ...speedProducts,
-  ...generalProducts,
+  ...oilPressureSensors,
+  ...temperatureSensors,
+  ...speedSensors,
+  ...totalProducts
 ];
 
 export default function Products() {
@@ -140,35 +123,72 @@ export default function Products() {
           title: 'Módulos de Control',
           description: 'Control preciso y monitoreo inteligente.',
           products: controlModules,
-          brands: ['COMAP', 'DEEPSEA', 'MEBAY']
+          brands: ['COMAP', 'DEEPSEA', 'MEBAY'],
+          message: 'Control total y automático de tu generador con máxima seguridad y eficiencia.'
         };
       case 'chargers':
         return {
           title: 'Cargadores de Batería',
           description: 'Mantenedores electrónicos para vida útil prolongada.',
           products: chargerProducts,
-          brands: ['DEEPSEA', 'MEBAY']
+          brands: ['DEEPSEA', 'MEBAY'],
+          message: 'Energía siempre lista para un arranque inmediato y confiable.'
         };
       case 'preheaters':
         return {
           title: 'Precalentadores de Motor',
           description: 'Sistemas HotStart para arranque confiable en frío.',
           products: preheaterProducts,
-          brands: ['HOTSTART']
+          brands: ['HOTSTART'],
+          message: 'Arranques rápidos incluso en frío, cuidando la vida del motor.'
         };
       case 'avr':
         return {
-          title: 'Tarjetas AVR',
+          title: 'TARJETAS REGULADORAS DE VOLTAJE',
           description: 'Regulación de voltaje para alternadores industriales.',
           products: avrProducts,
-          brands: ['LEROY SOMER', 'STAMFORD', 'CATERPILLAR', 'MECC ALTE', 'MEBAY', 'MARELLI']
+          brands: ['LEROY SOMER', 'STAMFORD', 'CATERPILLAR', 'MECC ALTE', 'MEBAY', 'MARELLI'],
+          message: 'Voltaje estable para proteger tus equipos y asegurar continuidad.'
         };
       case 'speed':
         return {
-          title: 'Control de Velocidad',
+          title: 'TARJETAS DE VELOCIDAD',
           description: 'Reguladores electrónicos de RPM con alta precisión.',
           products: speedProducts,
-          brands: ['LEROY SOMER', 'STAMFORD', 'CATERPILLAR', 'MECC ALTE', 'MEBAY', 'MARELLI']
+          brands: ['CUMMINS', 'GAC', 'WOODWARD'],
+          message: 'Precisión en la velocidad para un rendimiento óptimo del generador.'
+        };
+      case 'sensors':
+        return {
+          title: 'SENSORES DE PRESIÓN DE ACEITE',
+          description: 'Monitoreo crítico para la protección del motor.',
+          products: oilPressureSensors,
+          brands: ['MULTIMARCA'],
+          message: 'Protección inteligente para evitar daños en el motor.'
+        };
+      case 'temperature':
+        return {
+          title: 'SENSORES DE TEMPERATURA',
+          description: 'Monitoreo de temperatura crítica (40°C – 120°C).',
+          products: temperatureSensors,
+          brands: ['MULTIMARCA'],
+          message: 'Control térmico eficiente que previene sobrecalentamientos.'
+        };
+      case 'speed-sensors':
+        return {
+          title: 'SENSORES DE VELOCIDAD',
+          description: 'Pickups magnéticos para control preciso de RPM.',
+          products: speedSensors,
+          brands: ['CUMMINS', 'PERKINS', 'CATERPILLAR', 'JOHN DEERE'],
+          message: 'Medición exacta para un control seguro y sincronizado.'
+        };
+      case 'total':
+        return {
+          title: 'PRODUCTOS TOTAL',
+          description: 'Lubricantes y refrigerantes de alta especificación.',
+          products: totalProducts,
+          brands: ['TOTAL'],
+          message: 'Máximo cuidado y rendimiento para prolongar la vida de tu equipo.'
         };
       default:
         return null;
@@ -179,6 +199,11 @@ export default function Products() {
 
   return (
     <div className="pt-20 min-h-screen bg-slate-50 font-sans">
+      <SEO 
+        title="Catálogo de Repuestos y Componentes Industriales"
+        description="Amplio catálogo de módulos de control, cargadores de batería, precalentadores HotStart y repuestos originales para grupos electrógenos y motores industriales."
+        canonical="/productos"
+      />
       <section className="py-12 bg-brand-primary text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h1 
@@ -188,7 +213,7 @@ export default function Products() {
           >
             Catálogo Industrial
           </motion.h1>
-          <p className="text-brand-secondary/90 text-xl max-w-2xl font-medium">
+          <p className="text-slate-100 text-xl max-w-2xl font-medium">
             Equipamiento de potencia y componentes críticos para infraestructuras de alto rendimiento.
           </p>
         </div>
@@ -197,7 +222,7 @@ export default function Products() {
       <section className="py-12 border-b border-slate-200 bg-white sticky top-20 z-40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative group">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-hover:text-brand-primary transition-colors" size={24} />
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-500 group-hover:text-brand-primary transition-colors" size={24} />
             <input 
               type="text" 
               placeholder="Buscar por nombre, SKU o marca..." 
@@ -218,19 +243,19 @@ export default function Products() {
                 {/* Control Modules Banner */}
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
+                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[520px]"
                   onClick={() => handleOpenModal('modules')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://images.unsplash.com/photo-1581092334651-ddf26d9a1930?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/modulosDeControl.png?auto=format&fit=crop&q=80&w=2000" 
                     alt="Módulos de Control" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
-                    <span className="text-brand-secondary font-black uppercase tracking-[0.4em] text-xs mb-3 block">Sistemas de Gestión</span>
+                    <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Sistemas de Gestión</span>
                     <h2 className="text-4xl font-black font-display mb-4 tracking-tight uppercase">Módulos de Control</h2>
-                    <div className="flex items-center gap-3 text-brand-secondary font-bold">
+                    <div className="flex items-center gap-3 text-slate-100 font-bold">
                        Explorar marcas líderes <ChevronRight size={24} />
                     </div>
                   </div>
@@ -239,19 +264,19 @@ export default function Products() {
                 {/* Battery Chargers Banner */}
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
+                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[520px]"
                   onClick={() => handleOpenModal('chargers')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://images.unsplash.com/photo-1590674899484-14264b2303fc?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Cargadoresdebateria.png?auto=format&fit=crop&q=80&w=2000" 
                     alt="Cargadores de Batería" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
-                    <span className="text-brand-secondary font-black uppercase tracking-[0.4em] text-xs mb-3 block">Mantenimiento de Energía</span>
+                    <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Mantenimiento de Energía</span>
                     <h2 className="text-4xl font-black font-display mb-4 tracking-tight uppercase">Cargadores de Batería</h2>
-                    <div className="flex items-center gap-3 text-brand-secondary font-bold">
+                    <div className="flex items-center gap-3 text-slate-100 font-bold">
                        Ver modelos especializados <ChevronRight size={24} />
                     </div>
                   </div>
@@ -260,65 +285,142 @@ export default function Products() {
                 {/* Preheaters Banner */}
                 <motion.div 
                   whileHover={{ scale: 1.02 }}
-                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[500px]"
+                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[520px]"
                   onClick={() => handleOpenModal('preheaters')}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://images.unsplash.com/photo-1517420704952-d9f39e95b4a7?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Precalentadores.png?auto=format&fit=crop&q=80&w=2000" 
                     alt="Precalentadores" 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
-                    <span className="text-brand-secondary font-black uppercase tracking-[0.4em] text-xs mb-3 block">HotStart Systems</span>
+                    <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">HotStart Systems</span>
                     <h2 className="text-4xl font-black font-display mb-4 tracking-tight uppercase">Precalentadores de Block</h2>
-                    <div className="flex items-center gap-3 text-brand-secondary font-bold">
+                    <div className="flex items-center gap-3 text-slate-100 font-bold">
                        Consultar catálogo HotStart <ChevronRight size={24} />
                     </div>
                   </div>
                 </motion.div>
 
-                {/* AVR + Speed Controllers Grid (Stacked) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 h-[500px]">
-                   <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary group cursor-pointer flex flex-col justify-end p-8"
-                    onClick={() => handleOpenModal('avr')}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-80" />
-                    <img 
-                      src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" 
-                      alt="AVR" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
-                    />
-                    <div className="relative z-20">
-                      <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">Tarjetas AVR</h3>
-                      <p className="text-brand-secondary text-sm font-bold tracking-widest uppercase">Voltaje Control</p>
-                    </div>
-                  </motion.div>
+                {/* AVR Banner */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary group cursor-pointer h-[520px] flex flex-col justify-end p-8"
+                  onClick={() => handleOpenModal('avr')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-80" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Tarjetas-AVR.png?auto=format&fit=crop&q=80&w=800" 
+                    alt="AVR" 
+                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="relative z-20">
+                    <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">TARJETAS REGULADORAS DE VOLTAJE</h3>
+                    <p className="text-slate-100 text-sm font-bold tracking-widest uppercase">Voltaje Control</p>
+                  </div>
+                </motion.div>
 
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }}
-                    className="relative overflow-hidden rounded-[2.5rem] bg-slate-800 group cursor-pointer flex flex-col justify-end p-8"
-                    onClick={() => handleOpenModal('speed')}
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
-                    <img 
-                      src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?auto=format&fit=crop&q=80&w=800" 
-                      alt="Speed Control" 
-                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
-                    />
-                    <div className="relative z-20">
-                      <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">Tarjetas de Velocidad</h3>
-                      <p className="text-brand-secondary text-sm font-bold tracking-widest uppercase">RPM Control</p>
+                {/* Speed Controllers Banner */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative overflow-hidden rounded-[2.5rem] bg-slate-800 group cursor-pointer h-[520px] flex flex-col justify-end p-8"
+                  onClick={() => handleOpenModal('speed')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/velocidad.png?auto=format&fit=crop&q=80&w=800" 
+                    alt="Speed Control" 
+                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="relative z-20">
+                    <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">TARJETAS DE VELOCIDAD</h3>
+                    <p className="text-slate-100 text-sm font-bold tracking-widest uppercase">RPM Control</p>
+                  </div>
+                </motion.div>
+
+                {/* Oil Pressure Sensors Banner (Full width or new row) */}
+                <motion.div 
+                  whileHover={{ scale: 1.01 }}
+                  className="relative overflow-hidden rounded-[3rem] bg-slate-900 group cursor-pointer h-[520px]"
+                  onClick={() => handleOpenModal('sensors')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent z-10" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Sensores.png?auto=format&fit=crop&q=80&w=2000" 
+                    alt="Sensores de Presión" 
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
+                    <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Monitoreo de Precisión</span>
+                    <h2 className="text-4xl font-black font-display mb-4 tracking-tight uppercase leading-tight">Sensores de Presión de Aceite</h2>
+                    <p className="text-white/90 font-medium mb-6">Protección activa y monitoreo en tiempo real para motores de alta potencia.</p>
+                    <div className="flex items-center gap-3 text-slate-100 font-bold">
+                       Explorar opciones multimarca <ChevronRight size={24} />
                     </div>
-                  </motion.div>
-                </div>
+                  </div>
+                </motion.div>
+
+                {/* Temperature Sensors Banner */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative overflow-hidden rounded-[2.5rem] bg-brand-secondary group cursor-pointer flex h-[520px] flex-col justify-end p-8"
+                  onClick={() => handleOpenModal('temperature')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-secondary via-transparent to-transparent opacity-80" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensortemp.jpeg?auto=format&fit=crop&q=80&w=800" 
+                    alt="Sensores Temperatura" 
+                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="relative z-20">
+                    <h3 className="text-2xl font-black font-display text-white mb-2 uppercase text-center md:text-left">SENSORES DE TEMPERATURA</h3>
+                    <p className="text-slate-900 text-sm font-bold tracking-widest uppercase text-center md:text-left">40°C – 120°C</p>
+                  </div>
+                </motion.div>
+
+                {/* Speed Sensors Banner */}
+                <motion.div 
+                  whileHover={{ scale: 1.02 }}
+                  className="relative overflow-hidden rounded-[2.5rem] bg-indigo-900 group cursor-pointer flex h-[520px] flex-col justify-end p-8"
+                  onClick={() => handleOpenModal('speed-sensors')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 via-transparent to-transparent opacity-80" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensorvelo.jpeg?auto=format&fit=crop&q=80&w=800" 
+                    alt="Sensores Velocidad" 
+                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="relative z-20">
+                    <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">SENSORES DE VELOCIDAD</h3>
+                    <p className="text-slate-100 text-sm font-bold tracking-widest uppercase">Pickups Magnéticos</p>
+                  </div>
+                </motion.div>
+
+                {/* Total Products Banner (Full width) */}
+                <motion.div 
+                  whileHover={{ scale: 1.01 }}
+                  className="relative overflow-hidden rounded-[3rem] bg-brand-primary group cursor-pointer h-[520px]"
+                  onClick={() => handleOpenModal('total')}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/80 via-brand-primary/40 to-transparent z-10" />
+                  <img 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/TOTAL.png?auto=format&fit=crop&q=80&w=2000" 
+                    alt="Aceites TOTAL" 
+                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
+                    <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Mantenimiento de Motor</span>
+                    <h2 className="text-4xl font-black font-display mb-4 tracking-tight uppercase leading-tight">TOTAL Lubricantes y Refrigerantes</h2>
+                    <p className="text-white/80 font-medium mb-6 italic">Gama Rubia TIR, Optima y Coolelf para máxima protección térmica y mecánica.</p>
+                    <div className="flex items-center gap-3 text-slate-100 font-bold">
+                       Ver especificaciones técnicas <ChevronRight size={24} />
+                    </div>
+                  </div>
+                </motion.div>
               </div>
             </div>
           </section>
-
-
         </>
       ) : (
         /* Search Results View */
@@ -338,7 +440,7 @@ export default function Products() {
             </div>
 
             {filteredResults.length > 0 ? (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 auto-rows-fr">
                 {filteredResults.map((product) => {
                   const cartItem = cart.find((item) => item.id === product.id);
                   
@@ -347,13 +449,13 @@ export default function Products() {
                       key={product.id}
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-200 transition-all h-full flex flex-col group"
+                      className="bg-white p-10 rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:shadow-slate-200 transition-all h-full flex flex-col group min-h-[360px]"
                     >
                       <div className="flex items-start justify-between mb-8">
                         <div className="bg-slate-50 p-5 rounded-2xl text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-500">
                            <Package size={28} />
                         </div>
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 shadow-sm">
+                        <span className="text-[10px] font-black text-slate-600 uppercase tracking-[0.2em] bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-100 shadow-sm">
                           {product.sku}
                         </span>
                       </div>
@@ -372,30 +474,36 @@ export default function Products() {
 
                       <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
                         <div>
-                          <span className="text-[10px] text-brand-secondary font-black uppercase tracking-widest block bg-brand-secondary/10 px-3 py-1 rounded-lg border border-brand-secondary/20">Original</span>
-                          <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest block mt-2">Garantizado</span>
+                          <span className="text-[10px] text-brand-primary font-black uppercase tracking-widest block bg-brand-primary/10 px-3 py-1 rounded-lg border border-brand-primary/20">Original</span>
+                          <span className="text-[10px] text-slate-600 font-bold uppercase tracking-widest block mt-2">Garantizado</span>
                         </div>
 
                         {cartItem ? (
                           <div className="flex items-center gap-4 bg-slate-50 p-2 rounded-2xl border border-slate-100 shadow-inner">
                             <button 
+                              type="button"
                               onClick={() => updateQuantity(product.id, cartItem.quantity - 1)}
                               className="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-brand-primary"
+                              aria-label={`Reducir cantidad de ${product.name}`}
                             >
                               <Minus size={20} />
                             </button>
                             <span className="font-black text-slate-900 w-8 text-center text-lg">{cartItem.quantity}</span>
                             <button 
+                              type="button"
                               onClick={() => updateQuantity(product.id, cartItem.quantity + 1)}
                               className="w-10 h-10 flex items-center justify-center bg-white rounded-xl text-brand-primary"
+                              aria-label={`Aumentar cantidad de ${product.name}`}
                             >
                               <Plus size={20} />
                             </button>
                           </div>
                         ) : (
                           <button 
+                            type="button"
                             onClick={() => addToCart(product)}
                             className="bg-slate-900 text-white w-16 h-16 rounded-2xl hover:bg-brand-primary transition-all flex items-center justify-center group/btn"
+                            aria-label={`Agregar ${product.name} al carrito`}
                           >
                             <ShoppingCart size={24} className="group-hover/btn:scale-110 transition-transform" />
                           </button>
@@ -440,13 +548,15 @@ export default function Products() {
                     <Tag size={32} />
                   </div>
                   <div>
-                    <h3 className="text-3xl font-black font-display tracking-tight text-brand-secondary uppercase">{modalData.title}</h3>
-                    <p className="text-xs text-white/60 font-bold uppercase tracking-[0.3em] mt-1">{modalData.description}</p>
+                    <h3 className="text-3xl font-black font-display tracking-tight text-white uppercase">{modalData.title}</h3>
+                    <p className="text-xs text-slate-300 font-bold uppercase tracking-[0.3em] mt-1">{modalData.description}</p>
                   </div>
                 </div>
                 <button 
+                  type="button"
                   onClick={() => setActiveModal(null)}
                   className="w-14 h-14 bg-white/10 hover:bg-white/20 rounded-2xl flex items-center justify-center transition-all group"
+                  aria-label={`Cerrar modal de ${modalData.title}`}
                 >
                   <X size={28} className="group-hover:rotate-90 transition-transform" />
                 </button>
@@ -457,7 +567,7 @@ export default function Products() {
                   {/* Left: Brand Filter or Summary */}
                   <div className="lg:col-span-1 space-y-10">
                     <div className="space-y-6">
-                       <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] block border-b border-slate-100 pb-3">Marcas Partner</h4>
+                       <h4 className="text-[10px] font-black text-slate-600 uppercase tracking-[0.4em] block border-b border-slate-100 pb-3">Marcas Partner</h4>
                        <div className="flex flex-wrap gap-2">
                          <button 
                            onClick={() => setModalBrandFilter(null)}
@@ -485,7 +595,7 @@ export default function Products() {
                        </div>
                     </div>
                     <div className="bg-brand-primary/5 p-6 rounded-[2rem] border border-brand-primary/10">
-                       <p className="text-sm font-bold text-slate-700 leading-relaxed italic">"Garantizamos repuestos 100% originales con garantía de fábrica para asegurar la continuidad de su operación."</p>
+                       <p className="text-sm font-bold text-slate-700 leading-relaxed italic">{modalData.message}</p>
                     </div>
                   </div>
 
@@ -502,25 +612,27 @@ export default function Products() {
                             <div key={item.id} className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all border-l-[6px] border-l-brand-primary group">
                               <div>
                                 <div className="flex justify-between items-start mb-4">
-                                  <span className="text-[9px] font-black text-brand-primary/60 uppercase tracking-[0.2em]">{brand}</span>
-                                  <span className="text-[10px] font-black text-brand-secondary uppercase tracking-widest bg-brand-secondary/10 px-2 py-1 rounded">Stock Disponible</span>
+                                  <span className="text-[9px] font-black text-brand-primary uppercase tracking-[0.2em]">{brand}</span>
+                                  <span className="text-[10px] font-black text-brand-primary uppercase tracking-widest bg-brand-primary/10 px-2 py-1 rounded">Stock Disponible</span>
                                 </div>
                                 <h5 className="font-black text-slate-900 text-xl leading-tight mb-3 font-display uppercase tracking-tight">{item.name}</h5>
                                 <p className="text-slate-500 text-xs mb-8 leading-relaxed font-medium ">{item.description}</p>
                               </div>
                               
                               <div className="flex items-center justify-between mt-auto pt-6 border-t border-slate-200/50">
-                                <span className="text-[10px] font-black text-slate-300 uppercase tracking-[0.2em]">{item.sku}</span>
+                                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">{item.sku}</span>
                                 {cartItem ? (
                                   <div className="flex items-center gap-4 bg-white px-3 py-2 rounded-xl border border-slate-200 shadow-sm">
-                                    <button onClick={() => updateQuantity(item.id, cartItem.quantity - 1)} className="text-brand-primary hover:text-red-500 transition-colors"><Minus size={16} /></button>
+                                    <button type="button" onClick={() => updateQuantity(item.id, cartItem.quantity - 1)} className="text-brand-primary hover:text-red-500 transition-colors" aria-label={`Reducir cantidad de ${item.name}`}><Minus size={16} /></button>
                                     <span className="font-black text-sm min-w-[24px] text-center text-slate-900">{cartItem.quantity}</span>
-                                    <button onClick={() => updateQuantity(item.id, cartItem.quantity + 1)} className="text-brand-primary hover:text-emerald-500 transition-colors"><Plus size={16} /></button>
+                                    <button type="button" onClick={() => updateQuantity(item.id, cartItem.quantity + 1)} className="text-brand-primary hover:text-emerald-500 transition-colors" aria-label={`Aumentar cantidad de ${item.name}`}><Plus size={16} /></button>
                                   </div>
                                 ) : (
                                   <button 
+                                    type="button"
                                     onClick={() => addToCart(item)}
                                     className="bg-slate-900 text-white px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest hover:bg-brand-primary transition-all flex items-center gap-3 shadow-lg active:scale-95"
+                                    aria-label={`Agregar ${item.name} al carrito`}
                                   >
                                     <ShoppingCart size={16} /> Comprar
                                   </button>

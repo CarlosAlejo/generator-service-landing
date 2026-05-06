@@ -72,14 +72,18 @@ export default function Carousel() {
       </AnimatePresence>
 
       <button 
+        type="button"
         onClick={prev}
         className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all"
+        aria-label="Ver diapositiva anterior"
       >
         <ChevronLeft size={24} />
       </button>
       <button 
+        type="button"
         onClick={next}
         className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 backdrop-blur-md text-white hover:bg-white/20 transition-all"
+        aria-label="Ver siguiente diapositiva"
       >
         <ChevronRight size={24} />
       </button>
@@ -87,9 +91,12 @@ export default function Carousel() {
       <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {slides.map((_, i) => (
           <button
+            type="button"
             key={i}
             onClick={() => setCurrent(i)}
             className={`w-2 h-2 rounded-full transition-all ${current === i ? 'bg-brand-primary w-8' : 'bg-white/50'}`}
+            aria-label={`Ir a la diapositiva ${i + 1}`}
+            aria-pressed={current === i}
           />
         ))}
       </div>

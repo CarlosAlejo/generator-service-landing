@@ -1,7 +1,10 @@
+import { Suspense, lazy } from 'react';
 import { motion } from 'motion/react';
 import { ChevronDown, ChevronRight, Mouse } from 'lucide-react';
-import Carousel from '../components/Carousel';
-import BrandCarousel from '../components/BrandCarousel';
+import SEO from '../components/SEO';
+
+const Carousel = lazy(() => import('../components/Carousel'));
+const BrandCarousel = lazy(() => import('../components/BrandCarousel'));
 
 const WHATSAPP_NUMBER = "593998799981";
 
@@ -20,14 +23,23 @@ export default function Home() {
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Ingeniería Industrial y Respaldo Energético"
+        description="Especialistas en sistemas de respaldo energético, mantenimiento industrial y automatización. Soluciones integrales para optimizar la producción industrial en Argentina."
+        canonical="/"
+      />
       {/* --- HERO SECTION --- */}
       <section className="relative flex min-h-[72vh] items-center overflow-hidden sm:min-h-[80vh]">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.png?auto=format&fit=crop&q=80" 
             className="h-full w-full object-cover object-[62%_center] brightness-[0.35] sm:object-center"
-            alt="Ingenieria Industrial"
+            alt="Ingeniería Industrial"
             referrerPolicy="no-referrer"
+            width={1920}
+            height={1080}
+            loading="eager"
+            data-fetchpriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 to-transparent"></div>
         </div>
@@ -39,7 +51,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <span className="inline-block py-1 px-3 rounded-full bg-brand-secondary/20 border border-brand-secondary/30 text-brand-secondary text-xs font-bold tracking-widest uppercase mb-6">
+            <span className="inline-block py-1 px-3 rounded-full bg-white/12 border border-white/25 text-white text-xs font-bold tracking-widest uppercase mb-6">
               Especialistas en Sistemas de Respaldo y Generación Eléctrica Industrial
             </span>
             <h2 className="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] font-display">
@@ -75,7 +87,7 @@ export default function Home() {
           className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/85 transition-colors hover:text-white"
           aria-label="Desplazarse hacia abajo"
         >
-          <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-brand-secondary">
+          <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-slate-100">
             Scroll
           </span>
           <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
@@ -88,7 +100,7 @@ export default function Home() {
               <motion.span
                 animate={{ y: [-2, 6, -2], opacity: [0.3, 1, 0.3] }}
                 transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
-                className="absolute text-brand-secondary"
+                className="absolute text-slate-100"
               >
                 <ChevronDown size={14} />
               </motion.span>
@@ -98,7 +110,9 @@ export default function Home() {
       </section>
 
       {/* --- BRANDS SECTION --- */}
-      <BrandCarousel />
+      <Suspense fallback={<section className="border-y border-slate-100 bg-white py-16" />}>
+        <BrandCarousel />
+      </Suspense>
 
       {/* --- CAROUSEL SECTION --- */}
       <section className="py-24 bg-white">
@@ -109,7 +123,9 @@ export default function Home() {
               Explora cómo transformamos la industria a través de tecnología de vanguardia y compromiso con la excelencia.
             </p>
           </div>
-          <Carousel />
+          <Suspense fallback={<div className="h-[420px] rounded-[2rem] bg-slate-50" />}>
+            <Carousel />
+          </Suspense>
         </div>
       </section>
     </div>

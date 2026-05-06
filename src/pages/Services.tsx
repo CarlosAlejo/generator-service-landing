@@ -1,75 +1,83 @@
-import { motion } from 'motion/react';
-import { ChevronRight } from 'lucide-react';
+import { motion } from "motion/react";
+import { ChevronRight } from "lucide-react";
+import SEO from "../components/SEO";
 
 const WHATSAPP_NUMBER = "593998799981";
 
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 const staggerContainer = {
   animate: {
     transition: {
-      staggerChildren: 0.1
-    }
-  }
+      staggerChildren: 0.1,
+    },
+  },
 };
 
 const services = [
   {
-    title: "MANTENIMIENTO PREDICTIVO DE GRUPOS ELECTROGENOS",
-    desc: "Anticipamos fallas en grupos electrogenos mediante analisis tecnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalias antes de que se conviertan en fallas criticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y garantiza la continuidad operativa de sus equipos.",
+    title: "MANTENIMIENTO PREDICTIVO DE GRUPOS ELECTRÓGENOS",
+    desc: "Anticipamos fallas en grupos electrógenos mediante análisis técnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalías antes de que se conviertan en fallas criticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y garantiza la continuidad operativa de sus equipos.",
     imageSrc: "/services/ELECTROGENOS.svg",
-    imageAlt: "Servicio de grupos electrogenos",
+    imageAlt: "Servicio de grupos electrógenos",
     message: "Hola, quiero consultar sobre Mantenimiento Predictivo.",
   },
   {
     title: "MANTENIMIENTO PREVENTIVO",
-    desc: "Realizamos inspecciones periodicas y servicios programados en grupos electrogenos para asegurar su correcto funcionamiento, prolongar su vida util y evitar fallas inesperadas.",
+    desc: "Realizamos inspecciones periódicas y servicios programados en grupos electrógenos para asegurar su correcto funcionamiento, prolongar su vida util y evitar fallas inesperadas.",
     imageSrc: "/services/PREVENTIVO.svg",
     imageAlt: "Servicio de mantenimiento preventivo",
-    message: "Hola, necesito asesoria sobre Mantenimiento Preventivo.",
+    message: "Hola, necesito asesoría sobre Mantenimiento Preventivo.",
   },
   {
     title: "MANTENIMIENTO CORRECTIVO",
-    desc: "Atendemos y solucionamos fallas electricas y mecanicas en grupos electrogenos de manera rapida y eficiente, restableciendo su operatividad en el menor tiempo posible.",
+    desc: "Atendemos y solucionamos fallas eléctricas y mecánicas en grupos electrógenos de manera rápida y eficiente, restableciendo su operatividad en el menor tiempo posible.",
     imageSrc: "/services/CORRECTIVO.svg",
     imageAlt: "Servicio de mantenimiento correctivo",
-    message: "Hola, solicito informacion sobre Mantenimiento Correctivo.",
+    message: "Hola, solicito información sobre Mantenimiento Correctivo.",
   },
   {
-    title: "CONTROL Y AUTOMATIZACION",
-    desc: "Implementamos soluciones de automatizacion y sistemas de control para grupos electrogenos, optimizando su operacion, monitoreo y respuesta ante fallas. Integramos tecnologia que permite una gestion eficiente, segura y remota.",
+    title: "CONTROL Y AUTOMATIZACIÓN",
+    desc: "Implementamos soluciones de automatización y sistemas de control para grupos electrógenos, optimizando su operación, monitoreo y respuesta ante fallas. Integramos tecnología que permite una gestión eficiente, segura y remota.",
     imageSrc: encodeURI("/services/AUTOMATIZACIÓN.svg"),
-    imageAlt: "Servicio de control y automatizacion",
-    message: "Hola, quiero consultar sobre Control y Automatizacion.",
+    imageAlt: "Servicio de control y automatización",
+    message: "Hola, quiero consultar sobre Control y Automatización.",
   },
   {
-    title: "DIAGNOSTICO DE MOTORES ELECTRONICO",
-    desc: "Realizamos diagnostico avanzado en motores electronicos de diferentes marcas, detectando fallas de manera precisa para optimizar su rendimiento y mantener una operacion confiable.",
+    title: "DIAGNOSTICO DE MOTORES ELECTRÓNICO",
+    desc: "Realizamos diagnostico avanzado en motores electrónicos de diferentes marcas, detectando fallas de manera precisa para optimizar su rendimiento y mantener una operación confiable.",
     imageSrc: encodeURI("/services/ELECTRÓNICO.svg"),
-    imageAlt: "Servicio de diagnostico electronico",
-    message: "Hola, necesito asesoria sobre Diagnostico de Motores Electronicos.",
+    imageAlt: "Servicio de diagnostico electrónico",
+    message:
+      "Hola, necesito asesoría sobre Diagnostico de Motores Electrónicos.",
   },
   {
-    title: "ANALISIS DE ACEITE EN LABORATORIO",
-    desc: "Evaluamos el estado del aceite y de los componentes internos del equipo mediante pruebas especializadas, permitiendo detectar desgaste, contaminacion y posibles fallas.",
+    title: "ANÁLISIS DE ACEITE EN LABORATORIO",
+    desc: "Evaluamos el estado del aceite y de los componentes internos del equipo mediante pruebas especializadas, permitiendo detectar desgaste, contaminación y posibles fallas.",
     imageSrc: "/services/LABORATORIO.svg",
-    imageAlt: "Servicio de analisis de laboratorio",
-    message: "Hola, solicito informacion sobre Analisis de Aceite en Laboratorio.",
+    imageAlt: "Servicio de análisis de laboratorio",
+    message:
+      "Hola, solicito información sobre Análisis de Aceite en Laboratorio.",
   },
 ];
 
 export default function Services() {
   const handleWhatsAppAction = (message: string) => {
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, "_blank");
   };
 
   return (
     <div className="pt-20">
+      <SEO
+        title="Servicios de Ingeniería y Mantenimiento"
+        description="Servicios especializados en mantenimiento preventivo, automatización industrial y desarrollo de proyectos de ingeniería eléctrica y mecánica en Argentina."
+        canonical="/servicios"
+      />
       <section className="bg-slate-50 py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-20 text-center">
@@ -85,8 +93,9 @@ export default function Services() {
               </h2>
               <div className="mx-auto mb-8 h-1.5 w-20 rounded-full bg-brand-primary"></div>
               <p className="mx-auto max-w-2xl text-lg text-slate-500">
-                Ofrecemos un catalogo completo de servicios disenados para mantener tu
-                infraestructura industrial operando al maximo rendimiento.
+                Ofrecemos un catlogo completo de servicios diseñados para
+                mantener tu infraestructura industrial operando al máximo
+                rendimiento.
               </p>
             </motion.div>
           </div>
@@ -121,11 +130,11 @@ function ServiceCard({
   desc,
   onAction,
 }: {
-  imageSrc: string,
-  imageAlt: string,
-  title: string,
-  desc: string,
-  onAction: () => void,
+  imageSrc: string;
+  imageAlt: string;
+  title: string;
+  desc: string;
+  onAction: () => void;
 }) {
   return (
     <motion.div
@@ -140,10 +149,12 @@ function ServiceCard({
         <img
           src={imageSrc}
           alt={imageAlt}
-          className="h-full w-full object-contain"
+          className="h-full w-full object-contain filter grayscale opacity-80"
         />
       </motion.div>
-      <h3 className="mb-4 font-display text-2xl font-bold leading-tight text-slate-900">{title}</h3>
+      <h3 className="mb-4 font-display text-2xl font-bold leading-tight text-slate-900">
+        {title}
+      </h3>
       <p className="mb-8 flex-grow text-base leading-relaxed text-slate-500">
         {desc}
       </p>
@@ -152,7 +163,10 @@ function ServiceCard({
         className="group/btn flex items-center gap-2 font-bold text-brand-primary transition-colors hover:opacity-80"
       >
         Consultar ahora
-        <ChevronRight size={18} className="transition-transform group-hover/btn:translate-x-1" />
+        <ChevronRight
+          size={18}
+          className="transition-transform group-hover/btn:translate-x-1"
+        />
       </button>
     </motion.div>
   );

@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 
 const brands = [
-  { name: 'Cummins', logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/Cummins_logo.svg' },
+  { name: 'Cummins', logo: 'https://generadorescummins.com/wp-content/uploads/2021/07/power-gen-logotipo.png' },
   { name: 'Perkins', logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Perkins-Logo.svg/960px-Perkins-Logo.svg.png' },
   { name: 'FG Wilson', logo: 'https://i0.wp.com/unicompex.com/wp-content/uploads/2020/10/fg_wilson_logo_large-1.jpg?resize=6000%2C2392&ssl=1' },
   { name: 'Doosan', logo: 'https://www.donaldson.com/content/dam/donaldson/shared-assets/brands-logos/Donaldson-Logo-Horizontal-Reversed.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg' },
@@ -26,7 +26,7 @@ export default function BrandCarousel() {
   return (
     <div className="py-16 bg-white border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-12 text-center text-slate-800">
-        <p className="text-xs font-bold text-slate-400 uppercase tracking-[0.4em] mb-4">
+        <p className="text-xs font-bold text-slate-600 uppercase tracking-[0.4em] mb-4">
           Equipamiento y Repuestos Originales
         </p>
         <h2 className="text-3xl font-bold font-display">Trabajamos con Lideres Mundiales</h2>

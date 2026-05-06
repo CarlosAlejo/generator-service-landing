@@ -1,10 +1,16 @@
 import { motion } from "motion/react";
 import { ShieldCheck, Target, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
+import SEO from '../components/SEO';
 
 export default function About() {
   return (
     <div className="pt-20">
+      <SEO 
+        title="Sobre Nosotros - Trayectoria y Confianza"
+        description="Conozca a RMF Motor's Ingeniería. 10 años de experiencia brindando soluciones de ingeniería de alta precisión, automatización y mantenimiento industrial en Argentina."
+        canonical="/nosotros"
+      />
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">

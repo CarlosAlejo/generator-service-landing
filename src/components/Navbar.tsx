@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import Cart from './Cart';
 
-const WHATSAPP_NUMBER = "593998799981";
-const LOGO_SRC = "/Logo%20Vector%20RMF1.svg";
+const WHATSAPP_NUMBER = '593998799981';
+const LOGO_SRC = '/Logo%20Vector%20RMF1.svg';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,72 +27,81 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-slate-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
-          <motion.div 
+    <nav className="fixed z-50 w-full border-b border-slate-100 bg-white/80 backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
             <Link to="/" className="flex items-center">
-              <img
-                src={LOGO_SRC}
-                alt="RMF Motor's Ingenieria"
-                className="h-12 w-auto sm:h-14"
-              />
+              <img src={LOGO_SRC} alt="RMF Motor's Ingeniería" className="h-12 w-auto sm:h-14" />
             </Link>
           </motion.div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden items-center space-x-8 md:flex">
             {navLinks.map((link) => (
-              <Link 
+              <Link
                 key={link.name}
-                to={link.href} 
-                className={`text-sm font-semibold transition-colors relative group ${
-                  location.pathname === link.href ? 'text-brand-primary' : 'text-slate-600 hover:text-brand-primary'
+                to={link.href}
+                className={`group relative text-sm font-semibold transition-colors ${
+                  location.pathname === link.href
+                    ? 'text-brand-primary'
+                    : 'text-slate-600 hover:text-brand-primary'
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-brand-primary transition-all ${
-                  location.pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
-                }`}></span>
+                <span
+                  className={`absolute -bottom-1 left-0 h-0.5 bg-brand-primary transition-all ${
+                    location.pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                  }`}
+                ></span>
               </Link>
             ))}
-            <button 
-              onClick={() => handleWhatsAppAction("Hola, me gustaría solicitar un presupuesto.")}
-              className="bg-slate-900 text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-brand-primary transition-all shadow-md hover:shadow-brand-primary/20"
+            <button
+              type="button"
+              onClick={() => handleWhatsAppAction('Hola, me gustaría solicitar un presupuesto.')}
+              className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-primary hover:shadow-brand-primary/20"
             >
               Presupuesto
             </button>
-            
-            <button 
+
+            <button
+              type="button"
               onClick={() => setIsCartOpen(true)}
-              className="relative p-2 text-slate-600 hover:text-brand-primary transition-colors"
+              className="relative p-2 text-slate-600 transition-colors hover:text-brand-primary"
+              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} artículos` : ''}`}
             >
               <ShoppingCart size={24} />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-brand-primary text-[10px] font-bold text-white">
                   {totalItems}
                 </span>
               )}
             </button>
           </div>
 
-          <div className="flex md:hidden items-center gap-4">
-            <button 
+          <div className="flex items-center gap-4 md:hidden">
+            <button
+              type="button"
               onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-slate-600"
+              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} artículos` : ''}`}
             >
               <ShoppingCart size={24} />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-brand-primary text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">
+                <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-white bg-brand-primary text-[10px] font-bold text-white">
                   {totalItems}
                 </span>
               )}
             </button>
-            <button className="p-2 text-slate-600" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            <button
+              type="button"
+              className="p-2 text-slate-600"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? 'Cerrar menu de navegación' : 'Abrir menu de navegación'}
+            >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
@@ -101,31 +110,33 @@ export default function Navbar() {
 
       <Cart />
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-slate-100 overflow-hidden"
+            className="overflow-hidden border-b border-slate-100 bg-white md:hidden"
           >
-            <div className="px-4 pt-2 pb-6 space-y-2">
+            <div className="space-y-2 px-4 pt-2 pb-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`block px-3 py-4 text-base font-semibold rounded-xl ${
-                    location.pathname === link.href ? 'bg-brand-primary/10 text-brand-primary' : 'text-slate-900 hover:bg-slate-50'
+                  className={`block rounded-xl px-3 py-4 text-base font-semibold ${
+                    location.pathname === link.href
+                      ? 'bg-brand-primary/10 text-brand-primary'
+                      : 'text-slate-900 hover:bg-slate-50'
                   }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              <button 
-                onClick={() => handleWhatsAppAction("Hola, me gustaría solicitar un presupuesto.")}
-                className="w-full bg-brand-primary text-white py-4 rounded-xl font-bold shadow-lg"
+              <button
+                type="button"
+                onClick={() => handleWhatsAppAction('Hola, me gustaría solicitar un presupuesto.')}
+                className="w-full rounded-xl bg-brand-primary py-4 font-bold text-white shadow-lg"
               >
                 Solicitar Presupuesto
               </button>

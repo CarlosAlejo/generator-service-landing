@@ -27,7 +27,7 @@ export default function Terms() {
                 <h2 className="text-2xl font-black font-display m-0 uppercase">1. Aceptación de los Términos</h2>
               </div>
               <p className="text-slate-600 leading-relaxed font-medium">
-                Al acceder y utilizar el sitio web de RMF MOTOR'S INGENIERIA, usted acepta estar sujeto a estos términos y condiciones de uso, todas las leyes y regulaciones aplicables, y acepta que es responsable del cumplimiento de las leyes locales aplicables. Si no está de acuerdo con alguno de estos términos, tiene prohibido utilizar o acceder a este sitio.
+                Al acceder y utilizar el sitio web de RMF MOTOR'S INGENIERÍA, usted acepta estar sujeto a estos términos y condiciones de uso, todas las leyes y regulaciones aplicables, y acepta que es responsable del cumplimiento de las leyes locales aplicables. Si no está de acuerdo con alguno de estos términos, tiene prohibido utilizar o acceder a este sitio.
               </p>
             </section>
 
@@ -37,7 +37,7 @@ export default function Terms() {
                 <h2 className="text-2xl font-black font-display m-0 uppercase">2. Licencia de Uso</h2>
               </div>
               <p className="text-slate-600 leading-relaxed font-medium">
-                Se concede permiso para descargar temporalmente una copia de los materiales (información o software) en el sitio web de RMF MOTOR'S INGENIERIA para visualización transitoria personal y no comercial solamente. Esta es la concesión de una licencia, no una transferencia de título, y bajo esta licencia usted no puede:
+                Se concede permiso para descargar temporalmente una copia de los materiales (información o software) en el sitio web de RMF MOTOR'S INGENIERÍA para visualización transitoria personal y no comercial solamente. Esta es la concesión de una licencia, no una transferencia de título, y bajo esta licencia usted no puede:
               </p>
               <ul className="list-disc pl-6 space-y-2 text-slate-600 font-medium mt-4">
                 <li>Modificar o copiar los materiales.</li>
@@ -53,7 +53,7 @@ export default function Terms() {
                 <h2 className="text-2xl font-black font-display m-0 uppercase">3. Descargo de Responsabilidad</h2>
               </div>
               <p className="text-slate-600 leading-relaxed font-medium">
-                Los materiales en el sitio web de RMF MOTOR'S INGENIERIA se proporcionan "tal cual". RMF MOTOR'S INGENIERIA no ofrece garantías, expresas o implícitas, y por la presente renuncia y niega todas las demás garantías, incluyendo, sin limitación, las garantías implícitas o condiciones de comerciabilidad, idoneidad para un propósito particular o no infracción de propiedad intelectual u otra violación de derechos.
+                Los materiales en el sitio web de RMF MOTOR'S INGENIERÍA se proporcionan "tal cual". RMF MOTOR'S INGENIERÍA no ofrece garantías, expresas o implícitas, y por la presente renuncia y niega todas las demás garantías, incluyendo, sin limitación, las garantías implícitas o condiciones de comerciabilidad, idoneidad para un propósito particular o no infracción de propiedad intelectual u otra violación de derechos.
               </p>
             </section>
 
@@ -63,7 +63,7 @@ export default function Terms() {
                 <h2 className="text-2xl font-black font-display m-0 uppercase">4. Limitaciones</h2>
               </div>
               <p className="text-slate-600 leading-relaxed font-medium">
-                En ningún caso RMF MOTOR'S INGENIERIA o sus proveedores serán responsables de cualquier daño (incluyendo, sin limitación, daños por pérdida de datos o beneficios, o debido a la interrupción del negocio) que surja del uso o la imposibilidad de utilizar los materiales en el sitio web, incluso si RMF MOTOR'S INGENIERIA ha sido notificado oralmente o por escrito de la posibilidad de tales daños.
+                En ningún caso RMF MOTOR'S INGENIERÍA o sus proveedores serán responsables de cualquier daño (incluyendo, sin limitación, daños por pérdida de datos o beneficios, o debido a la interrupción del negocio) que surja del uso o la imposibilidad de utilizar los materiales en el sitio web, incluso si RMF MOTOR'S INGENIERIA ha sido notificado oralmente o por escrito de la posibilidad de tales daños.
               </p>
             </section>
 

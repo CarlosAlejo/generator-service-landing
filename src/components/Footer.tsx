@@ -2,19 +2,19 @@ const LOGO_SRC = "/LogoRMFW1.svg";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 py-16 text-slate-400">
+    <footer className="bg-slate-950 py-16 text-slate-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 grid gap-12 md:grid-cols-4">
           <div className="col-span-2">
             <div className="mb-6 flex items-center gap-3">
               <img
                 src={LOGO_SRC}
-                alt="RMF Motor's Ingenieria"
+                alt="RMF Motor's Ingeniería"
                 className="h-20 w-auto"
               />
             </div>
             <p className="mb-8 max-w-md leading-relaxed">
-              Especialistas en Sistemas de Respaldo y Generacion Electrica Industrial
+              Especialistas en Sistemas de Respaldo y Generación Eléctrica Industrial
             </p>
           </div>
           <div>
@@ -36,7 +36,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-4">
               <li>Lunes a Viernes: 08:00 - 18:00</li>
-              <li>Sabados: 09:00 - 13:00</li>
+              <li>Sábados: 09:00 - 13:00</li>
               <li className="font-bold text-brand-secondary">Emergencias 24/7</li>
             </ul>
           </div>
@@ -56,7 +56,7 @@ export default function Footer() {
           </p>
           <div className="flex gap-8">
             <a href="/privacidad" className="transition-colors hover:text-white">Privacidad</a>
-            <a href="/terminos" className="transition-colors hover:text-white">Terminos</a>
+            <a href="/terminos" className="transition-colors hover:text-white">Términos</a>
           </div>
         </div>
       </div>

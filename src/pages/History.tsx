@@ -1,36 +1,42 @@
 import { motion } from 'motion/react';
 import { Calendar, Award, Users, TrendingUp } from 'lucide-react';
+import SEO from '../components/SEO';
 
 export default function History() {
   const milestones = [
     {
-      year: '2009',
+      year: '2016',
       title: 'Fundación',
-      desc: 'RMF Motor\'s nace como un pequeño taller especializado en motores eléctricos en Buenos Aires.',
+      desc: 'RMF Motor\'s Ingeniería nace de la visión estratégica de tres profesionales comprometidos con el desarrollo del sector energético.',
       icon: <Users className="text-brand-primary" />
     },
     {
-      year: '2014',
+      year: '2019',
       title: 'Expansión Industrial',
       desc: 'Iniciamos la prestación de servicios de ingeniería y mantenimiento preventivo para grandes plantas industriales.',
       icon: <TrendingUp className="text-brand-primary" />
     },
     {
-      year: '2019',
-      title: 'Certificación de Calidad',
-      desc: 'Obtenemos certificaciones internacionales que avalan nuestros procesos de diagnóstico y reparación.',
+      year: '2022',
+      title: 'Innovación Tecnológica',
+      desc: 'Implementamos nuevas líneas de control electrónico y automatización de vanguardia.',
       icon: <Award className="text-brand-primary" />
     },
     {
-      year: '2024',
-      title: 'Liderazgo Regional',
-      desc: 'Nos consolidamos como referentes en soluciones de automatización e ingeniería de precisión en todo el país.',
+      year: '2026',
+      title: 'Liderazgo en Respaldo',
+      desc: 'Nos consolidamos como líderes en sistemas de respaldo energético y confiabilidad eléctrica a nivel nacional.',
       icon: <Calendar className="text-brand-primary" />
     }
   ];
 
   return (
     <div className="pt-20">
+      <SEO 
+        title="Nuestra Historia - 10 Años de Trayectoria"
+        description="Conozca el camino de RMF Motor's Ingeniería desde su fundación en 2016 hasta consolidarse como líder en sistemas de respaldo energético y confiabilidad eléctrica."
+        canonical="/historia"
+      />
       {/* Hero Section */}
       <section className="relative py-24 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
@@ -39,6 +45,10 @@ export default function History() {
             className="w-full h-full object-cover"
             alt="Fondo Historia"
             referrerPolicy="no-referrer"
+            width={1920}
+            height={1080}
+            loading="eager"
+            data-fetchpriority="high"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -55,7 +65,7 @@ export default function History() {
             transition={{ delay: 0.2 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Más de 15 años transformando la industria argentina a través del compromiso, la innovación y la excelencia técnica.
+            10 años transformando la industria argentina a través del compromiso, la innovación y la excelencia técnica.
           </motion.p>
         </div>
       </section>
@@ -105,14 +115,14 @@ export default function History() {
               >
                  <h2 className="text-4xl font-bold text-slate-900 mb-8 font-display">Un legado de ingeniería</h2>
                  <p className="text-lg text-slate-600 mb-6 leading-relaxed">
-                    Lo que comenzó como una visión compartida en un pequeño taller se ha convertido hoy en una empresa líder en el sector industrial. Nuestra historia no se trata solo de máquinas y motores, sino de las personas que han confiado en nosotros y del equipo que trabaja incansablemente para superar cada desafío.
+                    RMF Motor’s Ingeniería nace de la visión estratégica de tres profesionales comprometidos con el desarrollo del sector energético, quienes identificaron deficiencias críticas en la confiabilidad del sistema eléctrico a nivel nacional. 
                  </p>
                  <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                    A lo largo de los años, hemos enfrentado cambios tecnológicos significativos, pero nuestros valores fundamentales de integridad y calidad se han mantenido intactos. Hoy, miramos hacia el futuro con la misma pasión que el primer día.
+                    Frente a esta realidad, y considerando el creciente número de empresas que han optado por implementar sistemas de respaldo energético, se evidenció una importante oportunidad en el mercado que decidimos abrazar con excelencia y compromiso.
                  </p>
                  <div className="grid grid-cols-2 gap-8 py-8 border-t border-slate-200">
                     <div>
-                        <div className="text-3xl font-bold text-brand-primary mb-1 font-display">15+</div>
+                        <div className="text-3xl font-bold text-brand-primary mb-1 font-display">10</div>
                         <div className="text-sm font-bold text-slate-500 uppercase tracking-widest">Años de Trayectoria</div>
                     </div>
                     <div>
@@ -132,6 +142,9 @@ export default function History() {
                     className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
                     alt="Trabajo en equipo"
                     referrerPolicy="no-referrer"
+                    width={800}
+                    height={500}
+                    loading="lazy"
                  />
                  <div className="absolute -bottom-8 -right-8 bg-brand-primary p-12 rounded-full hidden lg:block border-8 border-white">
                     <Award className="text-white w-12 h-12" />
