@@ -14,13 +14,6 @@ export default function Home() {
     window.open(url, '_blank');
   };
 
-  const handleScrollCueClick = () => {
-    window.scrollTo({
-      top: window.innerHeight * 0.82,
-      behavior: 'smooth',
-    });
-  };
-
   return (
     <div className="pt-20">
       <SEO 
@@ -61,6 +54,7 @@ export default function Home() {
             <p className="text-xl mb-10 text-slate-300 max-w-xl leading-relaxed">
               RMF Motor's Ingeniería abarca diversos sectores clave como avícola, florícola, telecomunicaciones, hospitalario, financiero, industrial y construcción. Ofrecemos soluciones técnicas integrales y confiables, adaptadas específicamente a las necesidades de cada cliente.
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-4">
               <button 
                 onClick={() => handleWhatsAppAction("Hola, me gustaría solicitar información sobre sus servicios de ingeniería.")}
@@ -69,6 +63,7 @@ export default function Home() {
                 Comenzar Proyecto
                 <ChevronRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </button>
+              
               <a 
                 href="/servicios"
                 className="px-8 py-4 rounded-xl font-bold border border-white/20 hover:bg-white/10 transition-all text-center"
@@ -77,36 +72,9 @@ export default function Home() {
               </a>
             </div>
           </motion.div>
+          
         </div>
-        <motion.button
-          type="button"
-          onClick={handleScrollCueClick}
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1, duration: 0.6 }}
-          className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/85 transition-colors hover:text-white"
-          aria-label="Desplazarse hacia abajo"
-        >
-          <span className="text-[11px] font-bold uppercase tracking-[0.35em] text-slate-100">
-            Scroll
-          </span>
-          <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-sm">
-            <motion.div
-              animate={{ y: [0, 6, 0] }}
-              transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
-              className="relative flex items-center justify-center"
-            >
-              <Mouse size={22} />
-              <motion.span
-                animate={{ y: [-2, 6, -2], opacity: [0.3, 1, 0.3] }}
-                transition={{ repeat: Infinity, duration: 1.4, ease: 'easeInOut' }}
-                className="absolute text-slate-100"
-              >
-                <ChevronDown size={14} />
-              </motion.span>
-            </motion.div>
-          </div>
-        </motion.button>
+        
       </section>
 
       {/* --- BRANDS SECTION --- */}
