@@ -36,7 +36,7 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Link to="/" className="flex items-center">
-              <img src={LOGO_SRC} alt="RMF Motor's Ingeniería" className="h-12 w-auto sm:h-14" />
+              <img src={LOGO_SRC} alt="RMF Motor's Ingeniería" width={400} height={100} className="h-12 w-auto sm:h-14" loading="lazy"/>
             </Link>
           </motion.div>
 

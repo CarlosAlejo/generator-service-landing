@@ -41,12 +41,14 @@ export default function History() {
       <section className="relative py-24 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <img 
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80" 
+            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format,compress&fit=crop&q=60&w=1280" 
+            srcSet="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format,compress&fit=crop&q=60&w=640 640w, https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format,compress&fit=crop&q=60&w=1280 1280w"
+            sizes="100vw"
             className="w-full h-full object-cover"
-            alt="Fondo Historia"
+            alt="Línea de tiempo de la historia de RMF Motor's Ingeniería y su evolución en el sector energético"
             referrerPolicy="no-referrer"
-            width={1920}
-            height={1080}
+            width={1200}
+            height={800}
             loading="eager"
             data-fetchpriority="high"
           />
@@ -138,7 +140,7 @@ export default function History() {
                 className="relative"
               >
                  <img 
-                    src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80" 
+                    src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format,compress&fit=crop&q=60&w=800" 
                     className="rounded-3xl shadow-2xl w-full h-[500px] object-cover"
                     alt="Trabajo en equipo"
                     referrerPolicy="no-referrer"

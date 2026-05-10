@@ -1,12 +1,12 @@
 import { motion } from "motion/react";
 import { ShieldCheck, Target, Eye } from "lucide-react";
 import { Link } from "react-router-dom";
-import SEO from '../components/SEO';
+import SEO from "../components/SEO";
 
 export default function About() {
   return (
     <div className="pt-20">
-      <SEO 
+      <SEO
         title="Sobre Nosotros - Trayectoria y Confianza"
         description="Conozca a RMF Motor's Ingeniería. 10 años de experiencia brindando soluciones de ingeniería de alta precisión, automatización y mantenimiento industrial en Argentina."
         canonical="/nosotros"
@@ -23,10 +23,13 @@ export default function About() {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-slate-50 rounded-full -z-10"></div>
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200">
                 <img
-                  src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format&fit=crop&q=80"
+                  src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=800"
+                  srcSet="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=400 400w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=800 800w"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   alt="Ingeniero trabajando"
-                  className="w-full h-[320px] object-cover object-center transition-transform duration-700 hover:scale-105 sm:h-[420px] lg:h-[500px]"
+                  className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border border-slate-100 hidden md:block">
@@ -153,10 +156,18 @@ export default function About() {
           </h2>
           <div className="grid justify-center gap-8 md:grid-cols-3">
             {[
-              { title: "Calidad", desc: "Garantizamos altos estándares en cada servicio, respaldados por procesos técnicos y mejora continua." },
-              { title: "Compromiso", desc: "Cumplimos con responsabilidad cada proyecto, asegurando resultados que superen las expectativas de nuestros clientes." },
-              { title: "Responsabilidad", desc: "Actuamos con ética y profesionalismo en todas nuestras operaciones, cuidando los intereses de nuestros clientes y el entorno." },
-
+              {
+                title: "Calidad",
+                desc: "Garantizamos altos estándares en cada servicio, respaldados por procesos técnicos y mejora continua.",
+              },
+              {
+                title: "Compromiso",
+                desc: "Cumplimos con responsabilidad cada proyecto, asegurando resultados que superen las expectativas de nuestros clientes.",
+              },
+              {
+                title: "Responsabilidad",
+                desc: "Actuamos con ética y profesionalismo en todas nuestras operaciones, cuidando los intereses de nuestros clientes y el entorno.",
+              },
             ].map((value, i) => (
               <motion.div
                 key={i}

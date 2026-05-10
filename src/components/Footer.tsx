@@ -10,7 +10,7 @@ export default function Footer() {
               <img
                 src={LOGO_SRC}
                 alt="RMF Motor's Ingeniería"
-                className="h-20 w-auto"
+                width={400} height={100} className="h-14 w-auto sm:h-16" loading="lazy"
               />
             </div>
             <p className="mb-8 max-w-md leading-relaxed">

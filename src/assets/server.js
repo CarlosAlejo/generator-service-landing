@@ -124,6 +124,10 @@ export async function createApp() {
 
   app.use(vite.middlewares);
   app.use(async (req, res, next) => {
+    // Skip SPA fallback for API routes
+    if (req.url.startsWith('/api/')) {
+      return next();
+    }
     try {
       const url = req.originalUrl;
       const template = await vite.transformIndexHtml(

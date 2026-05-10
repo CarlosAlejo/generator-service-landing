@@ -6,82 +6,82 @@ import SEO from '../components/SEO';
 
 const controlModules: Product[] = [
   // COMAP
-  { id: 'cm1', name: 'ComAp AMF8', category: 'Módulos de Control', price: 380, description: 'Módulo de control Grupo Electrógeno ECU + ATS Intelilite 4', sku: 'COMAP-AMF8' },
-  { id: 'cm2', name: 'ComAp AMF20', category: 'Módulos de Control', price: 420, description: 'Módulo de control Grupo Electrógeno + ATS', sku: 'COMAP-AMF20' },
-  { id: 'cm3', name: 'ComAp AMF25', category: 'Módulos de Control', price: 480, description: 'Módulo de control Grupo Electrógeno ECU + ATS', sku: 'COMAP-AMF25' },
-  { id: 'cm4', name: 'ComAp ATS2-70', category: 'Módulos de Control', price: 350, description: 'Módulo de control ATS Full control', sku: 'COMAP-ATS2-70' },
+  { id: 'cm1', name: 'ComAp AMF8', category: 'Módulos de Control', brand:'COMAP', price: 380, description: 'Módulo de control Grupo Electrógeno ECU + ATS Intelilite 4', sku: 'COMAP-AMF8' },
+  { id: 'cm2', name: 'ComAp AMF20', category: 'Módulos de Control', brand:'COMAP', price: 420, description: 'Módulo de control Grupo Electrógeno + ATS', sku: 'COMAP-AMF20' },
+  { id: 'cm3', name: 'ComAp AMF25', category: 'Módulos de Control', brand:'COMAP',price: 480, description: 'Módulo de control Grupo Electrógeno ECU + ATS', sku: 'COMAP-AMF25' },
+  { id: 'cm4', name: 'ComAp ATS2-70', category: 'Módulos de Control', brand:'COMAP', price: 350, description: 'Módulo de control ATS Full control', sku: 'COMAP-ATS2-70' },
   // DEEPSEA
-  { id: 'ds1', name: 'DSE7420MKII', category: 'Módulos de Control', price: 580, description: 'Módulo de control Grupo Electrógeno ECU + ATS Intelilite 4', sku: 'DSE-7420' },
-  { id: 'ds2', name: 'DSE7310MKII', category: 'Módulos de Control', price: 520, description: 'Módulo de control Generador DSE 7310 MKII', sku: 'DSE-7310' },
-  { id: 'ds3', name: 'DSE6120', category: 'Módulos de Control', price: 410, description: 'Módulo de control Generador + ATS DSE6120', sku: 'DSE-6120' },
-  { id: 'ds4', name: 'DSE4520', category: 'Módulos de Control', price: 320, description: 'Módulo de control DSE4520 Generador + ATS', sku: 'DSE-4520' },
+  { id: 'ds1', name: 'DSE7420MKII', category: 'Módulos de Control', brand:'DEEPSEA', price: 580, description: 'Módulo de control Grupo Electrógeno ECU + ATS Intelilite 4', sku: 'DSE-7420' },
+  { id: 'ds2', name: 'DSE7310MKII', category: 'Módulos de Control', brand:'DEEPSEA', price: 520, description: 'Módulo de control Generador DSE 7310 MKII', sku: 'DSE-7310' },
+  { id: 'ds3', name: 'DSE6120', category: 'Módulos de Control', brand:'DEEPSEA', price: 410, description: 'Módulo de control Generador + ATS DSE6120', sku: 'DSE-6120' },
+  { id: 'ds4', name: 'DSE4520', category: 'Módulos de Control', brand:'DEEPSEA', price: 320, description: 'Módulo de control DSE4520 Generador + ATS', sku: 'DSE-4520' },
   // MEBAY
-  { id: 'mb1', name: 'Mebay DC42C', category: 'Módulos de Control', price: 290, description: 'Módulo de control para grupo electrógeno + Red', sku: 'MEB-DC42C' },
-  { id: 'mb2', name: 'Mebay DC52D', category: 'Módulos de Control', price: 310, description: 'Módulo de control para grupo electrógeno + AMF MEBAY DC52D', sku: 'MEB-DC52D' },
-  { id: 'mb3', name: 'Mebay DC72D', category: 'Módulos de Control', price: 360, description: 'Módulo de control para grupo electrógeno + AMF MEBAY DC72D', sku: 'MEB-DC72D' },
-  { id: 'mb4', name: 'Mebay ATS420', category: 'Módulos de Control', price: 280, description: 'Modulo control MEBAY ATS420 para transferencia automática', sku: 'MEB-ATS420' },
+  { id: 'mb1', name: 'Mebay DC42C', category: 'Módulos de Control', brand:'MEBAY', price: 290, description: 'Módulo de control para grupo electrógeno + Red', sku: 'MEB-DC42C' },
+  { id: 'mb2', name: 'Mebay DC52D', category: 'Módulos de Control', brand:'MEBAY', price: 310, description: 'Módulo de control para grupo electrógeno + AMF MEBAY DC52D', sku: 'MEB-DC52D' },
+  { id: 'mb3', name: 'Mebay DC72D', category: 'Módulos de Control', brand:'MEBAY', price: 360, description: 'Módulo de control para grupo electrógeno + AMF MEBAY DC72D', sku: 'MEB-DC72D' },
+  { id: 'mb4', name: 'Mebay ATS420', category: 'Módulos de Control', brand:'MEBAY', price: 280, description: 'Modulo control MEBAY ATS420 para transferencia automática', sku: 'MEB-ATS420' },
 ];
 
 const chargerProducts: Product[] = [
-  { id: 'ch1', name: 'DSE 12V - 6A', category: 'Cargadores', price: 145, description: 'Mantenedor electrónico de batería 12 V - 6 Amp', sku: 'DSE-12V6A' },
-  { id: 'ch2', name: 'DSE 24V - 10A', category: 'Cargadores', price: 195, description: 'Mantenedor electrónico de batería 24 V - 10 Amp', sku: 'DSE-24V10A' },
-  { id: 'ch3', name: 'Mebay BCC3A-12V', category: 'Cargadores', price: 65, description: 'Mantenedor electrónico de bateria 12 V / 3 Amp', sku: 'MEB-BCC3A' },
-  { id: 'ch4', name: 'Mebay BCC10A-12V', category: 'Cargadores', price: 115, description: 'Mantenedor electrónico de batería 12 V / 10 Amp', sku: 'MEB-BCC10A' },
-  { id: 'ch5', name: 'Mebay BCC6A-12V', category: 'Cargadores', price: 85, description: 'Mantenedor electrónico de batería 12 V / 6 Amp', sku: 'MEB-BCC6A' },
-  { id: 'ch6', name: 'Mebay BCC10A-24V', category: 'Cargadores', price: 130, description: 'Mantenedor electrónico de batería 24 V / 10 Amp', sku: 'MEB-BCC10A24' },
-  { id: 'ch7', name: 'Mebay BCC6A-24V', category: 'Cargadores', price: 95, description: 'Mantenedor electrónico de batería 24 V / 6 Amp', sku: 'MEB-BCC6A24' },
+  { id: 'ch1', name: 'DSE 12V - 6A', category: 'Cargadores', brand:'DEEPSEA', price: 145, description: 'Mantenedor electrónico de batería 12 V - 6 Amp', sku: 'DSE-12V6A' },
+  { id: 'ch2', name: 'DSE 24V - 10A', category: 'Cargadores', brand:'DEEPSEA', price: 195, description: 'Mantenedor electrónico de batería 24 V - 10 Amp', sku: 'DSE-24V10A' },
+  { id: 'ch3', name: 'Mebay BCC3A-12V', category: 'Cargadores', brand:'MEBAY', price: 65, description: 'Mantenedor electrónico de bateria 12 V / 3 Amp', sku: 'MEB-BCC3A' },
+  { id: 'ch4', name: 'Mebay BCC10A-12V', category: 'Cargadores', brand:'MEBAY', price: 115, description: 'Mantenedor electrónico de batería 12 V / 10 Amp', sku: 'MEB-BCC10A' },
+  { id: 'ch5', name: 'Mebay BCC6A-12V', category: 'Cargadores', brand:'MEBAY', price: 85, description: 'Mantenedor electrónico de batería 12 V / 6 Amp', sku: 'MEB-BCC6A' },
+  { id: 'ch6', name: 'Mebay BCC10A-24V', category: 'Cargadores', brand:'MEBAY', price: 130, description: 'Mantenedor electrónico de batería 24 V / 10 Amp', sku: 'MEB-BCC10A24' },
+  { id: 'ch7', name: 'Mebay BCC6A-24V', category: 'Cargadores', brand:'MEBAY', price: 95, description: 'Mantenedor electrónico de batería 24 V / 6 Amp', sku: 'MEB-BCC6A24' },
 ];
 
 const preheaterProducts: Product[] = [
-  { id: 'ph1', name: 'CB120200-000', category: 'Precalentadores', price: 280, description: 'Precalentador Block motor HotStart Horizontal 2000 W / 240 V', sku: 'HS-CB120' },
-  { id: 'ph2', name: 'SB125208-200', category: 'Precalentadores', price: 310, description: 'Precalentador Block motor HotStart Horizontal 2500 W / 240 V', sku: 'HS-SB125' },
-  { id: 'ph3', name: 'CL130200-100', category: 'Precalentadores', price: 340, description: 'Precalentador Block motor HotStart Horizontal 3000 W / 240 V', sku: 'HS-CL130' },
-  { id: 'ph4', name: 'CL140200-100', category: 'Precalentadores', price: 390, description: 'Precalentador Block motor HotStart Horizontal 4000 W / 240 v', sku: 'HS-CL140' },
-  { id: 'ph5', name: 'PH1000-120V', category: 'Precalentadores', price: 180, description: 'Precalentador HotStart 1000 W/120 V', sku: 'HS-PH1000' },
-  { id: 'ph6', name: 'PH1500-120V', category: 'Precalentadores', price: 210, description: 'Precalentador HotStart 1500 W/120 V', sku: 'HS-PH1500' },
-  { id: 'ph7', name: 'PH1500-240V', category: 'Precalentadores', price: 215, description: 'Precalentador HotStart 1500 W/240 V', sku: 'HS-PH1500-2' },
-  { id: 'ph8', name: 'TPS202GT12-000', category: 'Precalentadores', price: 250, description: 'Precalentador HotStart 2000 W/240 V', sku: 'HS-TPS202' },
-  { id: 'ph9', name: 'PH500-120V', category: 'Precalentadores', price: 150, description: 'Precalentador HotStart 500 W/120 V', sku: 'HS-PH500' },
+  { id: 'ph1', name: 'CB120200-000', category: 'Precalentadores', price: 280, brand:'HotStart', description: 'Precalentador Block motor HotStart Horizontal 2000 W / 240 V', sku: 'HS-CB120' },
+  { id: 'ph2', name: 'SB125208-200', category: 'Precalentadores', price: 310, brand:'HotStart', description: 'Precalentador Block motor HotStart Horizontal 2500 W / 240 V', sku: 'HS-SB125' },
+  { id: 'ph3', name: 'CL130200-100', category: 'Precalentadores', price: 340, brand:'HotStart', description: 'Precalentador Block motor HotStart Horizontal 3000 W / 240 V', sku: 'HS-CL130' },
+  { id: 'ph4', name: 'CL140200-100', category: 'Precalentadores', price: 390, brand:'HotStart', description: 'Precalentador Block motor HotStart Horizontal 4000 W / 240 v', sku: 'HS-CL140' },
+  { id: 'ph5', name: 'PH1000-120V', category: 'Precalentadores', price: 180, brand:'HotStart', description: 'Precalentador HotStart 1000 W/120 V', sku: 'HS-PH1000' },
+  { id: 'ph6', name: 'PH1500-120V', category: 'Precalentadores', price: 210, brand:'HotStart', description: 'Precalentador HotStart 1500 W/120 V', sku: 'HS-PH1500' },
+  { id: 'ph7', name: 'PH1500-240V', category: 'Precalentadores', price: 215, brand:'HotStart', description: 'Precalentador HotStart 1500 W/240 V', sku: 'HS-PH1500-2' },
+  { id: 'ph8', name: 'TPS202GT12-000', category: 'Precalentadores', price: 250, brand:'HotStart', description: 'Precalentador HotStart 2000 W/240 V', sku: 'HS-TPS202' },
+  { id: 'ph9', name: 'PH500-120V', category: 'Precalentadores', price: 150, brand:'HotStart', description: 'Precalentador HotStart 500 W/120 V', sku: 'HS-PH500' },
 ];
 
 const avrProducts: Product[] = [
-  { id: 'avr1', name: 'Tarjeta Reguladora Leroy Somer', category: 'Reguladores de Voltaje', price: 180, description: 'Tarjeta reguladora de voltaje de alta precisión', sku: 'AVR-LS' },
-  { id: 'avr2', name: 'Tarjeta Reguladora Stamford', category: 'Reguladores de Voltaje', price: 195, description: 'Tarjeta reguladora de voltaje original', sku: 'AVR-STM' },
-  { id: 'avr3', name: 'Tarjeta Reguladora Caterpillar', category: 'Reguladores de Voltaje', price: 240, description: 'Tarjeta reguladora de voltaje para motores CAT', sku: 'AVR-CAT' },
-  { id: 'avr4', name: 'Tarjeta Reguladora Mecc Alte', category: 'Reguladores de Voltaje', price: 175, description: 'Tarjeta reguladora de voltaje regulada', sku: 'AVR-MA' },
-  { id: 'avr5', name: 'Tarjeta Reguladora Mebay', category: 'Reguladores de Voltaje', price: 110, description: 'Tarjeta reguladora de voltaje económica', sku: 'AVR-MEB' },
-  { id: 'avr6', name: 'Tarjeta Reguladora Marelli', category: 'Reguladores de Voltaje', price: 165, description: 'Tarjeta reguladora de voltaje Marelli', sku: 'AVR-MAR' },
+  { id: 'avr1', name: 'Tarjeta Reguladora Leroy Somer', category: 'Reguladores de Voltaje', price: 180, brand:'Leroy Somer', description: 'Tarjeta reguladora de voltaje de alta precisión', sku: 'AVR-LS' },
+  { id: 'avr2', name: 'Tarjeta Reguladora Stamford', category: 'Reguladores de Voltaje', price: 195, brand:'Stamford', description: 'Tarjeta reguladora de voltaje original', sku: 'AVR-STM' },
+  { id: 'avr3', name: 'Tarjeta Reguladora Caterpillar', category: 'Reguladores de Voltaje', price: 240, brand:'Caterpillar', description: 'Tarjeta reguladora de voltaje para motores CAT', sku: 'AVR-CAT' },
+  { id: 'avr4', name: 'Tarjeta Reguladora Mecc Alte', category: 'Reguladores de Voltaje', price: 175, brand:'Mecc Alte', description: 'Tarjeta reguladora de voltaje regulada', sku: 'AVR-MA' },
+  { id: 'avr5', name: 'Tarjeta Reguladora Mebay', category: 'Reguladores de Voltaje', price: 110, brand:'MEBAY', description: 'Tarjeta reguladora de voltaje económica', sku: 'AVR-MEB' },
+  { id: 'avr6', name: 'Tarjeta Reguladora Marelli', category: 'Reguladores de Voltaje', price: 165, brand:'Marelli', description: 'Tarjeta reguladora de voltaje Marelli', sku: 'AVR-MAR' },
 ];
 
 const speedProducts: Product[] = [
-  { id: 'sc1', name: 'Tarjeta de Velocidad Cummins', category: 'Tarjetas de Velocidad', price: 230, description: 'Controlador de velocidad electrónico para motores Cummins', sku: 'SPD-CUM' },
-  { id: 'sc2', name: 'Tarjeta de Velocidad GAC', category: 'Tarjetas de Velocidad', price: 250, description: 'Unidad de control de velocidad GAC original de alta precisión', sku: 'SPD-GAC' },
-  { id: 'sc3', name: 'Tarjeta de Velocidad Woodward', category: 'Tarjetas de Velocidad', price: 280, description: 'Módulo de control de velocidad Woodward para aplicaciones industriales', sku: 'SPD-WW' },
+  { id: 'sc1', name: 'Tarjeta de Velocidad Cummins', category: 'Tarjetas de Velocidad', price: 230, brand:'Cummins', description: 'Controlador de velocidad electrónico para motores Cummins', sku: 'SPD-CUM' },
+  { id: 'sc2', name: 'Tarjeta de Velocidad GAC', category: 'Tarjetas de Velocidad', price: 250, brand:'GAC', description: 'Unidad de control de velocidad GAC original de alta precisión', sku: 'SPD-GAC' },
+  { id: 'sc3', name: 'Tarjeta de Velocidad Woodward', category: 'Tarjetas de Velocidad', price: 280, brand:'Woodward', description: 'Módulo de control de velocidad Woodward para aplicaciones industriales', sku: 'SPD-WW' },
 ];
 
 const oilPressureSensors: Product[] = [
-  { id: 'ops1', name: 'Sensor de Presión de Aceite 0 - 10 Bar', category: 'Sensores de Presión', price: 45, description: 'Sensor de presión de aceite de alta precisión para monitoreo industrial.', sku: 'OPS-10B' },
-  { id: 'ops2', name: 'Sensor de Presión de Aceite 5 V', category: 'Sensores de Presión', price: 50, description: 'Sensor de presión con salida de señal de 5V para módulos electrónicos.', sku: 'OPS-5V' },
-  { id: 'ops3', name: 'Sensor de Presión de Aceite Multimarca', category: 'Sensores de Presión', price: 40, description: 'Sensor de presión universal compatible con diversas marcas de motores.', sku: 'OPS-UNI' },
+  { id: 'ops1', name: 'Sensor de Presión de Aceite 0 - 10 Bar', category: 'Sensores de Presión', price: 45, brand:'Bar', description: 'Sensor de presión de aceite de alta precisión para monitoreo industrial.', sku: 'OPS-10B' },
+  { id: 'ops2', name: 'Sensor de Presión de Aceite 5 V', category: 'Sensores de Presión', price: 50, brand:'Bar', description: 'Sensor de presión con salida de señal de 5V para módulos electrónicos.', sku: 'OPS-5V' },
+  { id: 'ops3', name: 'Sensor de Presión de Aceite Multimarca', category: 'Sensores de Presión', price: 40, brand:'Multimarca', description: 'Sensor de presión universal compatible con diversas marcas de motores.', sku: 'OPS-UNI' },
 ];
 
 const temperatureSensors: Product[] = [
-  { id: 'ts1', name: 'Sensor de Temperatura 40°C – 120°C', category: 'Sensores de Temperatura', price: 35, description: 'Sensor de temperatura de alta sensibilidad para sistemas de refrigeración.', sku: 'TEMP-120C' },
-  { id: 'ts2', name: 'Sensor de Temperatura Multimarca Estándar', category: 'Sensores de Temperatura', price: 38, description: 'Sensor universal de temperatura para motores diesel industriales.', sku: 'TEMP-UNI' },
+  { id: 'ts1', name: 'Sensor de Temperatura 40°C – 120°C', category: 'Sensores de Temperatura', price: 35, brand:'Bar', description: 'Sensor de temperatura de alta sensibilidad para sistemas de refrigeración.', sku: 'TEMP-120C' },
+  { id: 'ts2', name: 'Sensor de Temperatura Multimarca Estándar', category: 'Sensores de Temperatura', price: 38, brand:'Multimarca', description: 'Sensor universal de temperatura para motores diesel industriales.', sku: 'TEMP-UNI' },
 ];
 
 const speedSensors: Product[] = [
-  { id: 'ss1', name: 'Sensor de Velocidad Cummins', category: 'Sensores de Velocidad', price: 55, description: 'Pickup magnético de alta precisión para motores Cummins.', sku: 'SS-CUM' },
-  { id: 'ss2', name: 'Sensor de Velocidad Perkins', category: 'Sensores de Velocidad', price: 60, description: 'Sensor de revoluciones especializado para aplicaciones Perkins.', sku: 'SS-PERK' },
-  { id: 'ss3', name: 'Sensor de Velocidad Caterpillar', category: 'Sensores de Velocidad', price: 70, description: 'Sensor magnético reforzado para condiciones extremas CAT.', sku: 'SS-CAT' },
-  { id: 'ss4', name: 'Sensor de Velocidad John Deere', category: 'Sensores de Velocidad', price: 65, description: 'Pickup magnético original para motores John Deere.', sku: 'SS-JD' },
+  { id: 'ss1', name: 'Sensor de Velocidad Cummins', category: 'Sensores de Velocidad', price: 55, brand:'Cummins', description: 'Pickup magnético de alta precisión para motores Cummins.', sku: 'SS-CUM' },
+  { id: 'ss2', name: 'Sensor de Velocidad Perkins', category: 'Sensores de Velocidad', price: 60, brand:'Perkins', description: 'Sensor de revoluciones especializado para aplicaciones Perkins.', sku: 'SS-PERK' },
+  { id: 'ss3', name: 'Sensor de Velocidad Caterpillar', category: 'Sensores de Velocidad', price: 70, brand:'Caterpillar', description: 'Sensor magnético reforzado para condiciones extremas CAT.', sku: 'SS-CAT' },
+  { id: 'ss4', name: 'Sensor de Velocidad John Deere', category: 'Sensores de Velocidad', price: 65, brand:'John Deere', description: 'Pickup magnético original para motores John Deere.', sku: 'SS-JD' },
 ];
 
 const totalProducts: Product[] = [
-  { id: 'total1', name: 'Aceite Total Rubia TIR 7400 15W40 - API CI4', category: 'Lubricantes', price: 160, description: 'Aceite lubricante de alto rendimiento para motores diesel pesados.', sku: 'TOT-RUB-7400' },
-  { id: 'total2', name: 'Aceite Total Rubia Optima 1100 15W40 - API CK4', category: 'Lubricantes', price: 185, description: 'Lubricante premium de última generación con tecnología Low-SAPS.', sku: 'TOT-RUB-1100' },
-  { id: 'total3', name: 'Refrigerante Total Coolelf Organic -26°C', category: 'Refrigerantes', price: 45, description: 'Líquido refrigerante orgánico de larga duración, protección hasta -26°C.', sku: 'TOT-COOL-26' },
-  { id: 'total4', name: 'Refrigerante Total Coolelf Auto Supra -37°C', category: 'Refrigerantes', price: 55, description: 'Refrigerante de alta gama con tecnología orgánica OAT, protección hasta -37°C.', sku: 'TOT-COOL-37' },
+  { id: 'total1', name: 'Aceite Total Rubia TIR 7400 15W40 - API CI4', category: 'Lubricantes', price: 160, brand:'Total', description: 'Aceite lubricante de alto rendimiento para motores diesel pesados.', sku: 'TOT-RUB-7400' },
+  { id: 'total2', name: 'Aceite Total Rubia Optima 1100 15W40 - API CK4', category: 'Lubricantes', price: 185, brand:'Total', description: 'Lubricante premium de última generación con tecnología Low-SAPS.', sku: 'TOT-RUB-1100' },
+  { id: 'total3', name: 'Refrigerante Total Coolelf Organic -26°C', category: 'Refrigerantes', price: 45, brand:'Total', description: 'Líquido refrigerante orgánico de larga duración, protección hasta -26°C.', sku: 'TOT-COOL-26' },
+  { id: 'total4', name: 'Refrigerante Total Coolelf Auto Supra -37°C', category: 'Refrigerantes', price: 55, brand:'Total', description: 'Refrigerante de alta gama con tecnología orgánica OAT, protección hasta -37°C.', sku: 'TOT-COOL-37' },
 ];
 
 const allProducts = [
@@ -248,9 +248,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/modulosDeControl.png?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/modulosDeControl.png?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Módulos de Control" 
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
                     <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Sistemas de Gestión</span>
@@ -269,9 +269,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Cargadoresdebateria.png?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Cargadoresdebateria1.png?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Cargadores de Batería" 
-                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
                     <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Mantenimiento de Energía</span>
@@ -290,9 +290,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Precalentadores.png?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Precalentadores1.png?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Precalentadores" 
-                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
                     <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">HotStart Systems</span>
@@ -311,9 +311,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Tarjetas-AVR.png?auto=format&fit=crop&q=80&w=800" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Tarjetas-AVR1.png??auto=format,compress&fit=crop&q=75&w=600" 
                     alt="AVR" 
-                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="relative z-20">
                     <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">TARJETAS REGULADORAS DE VOLTAJE</h3>
@@ -329,9 +329,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/velocidad.png?auto=format&fit=crop&q=80&w=800" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/velocidad1.png?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Speed Control" 
-                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="relative z-20">
                     <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">TARJETAS DE VELOCIDAD</h3>
@@ -347,9 +347,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Sensores.png?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Sensores1.png?auto=format,compress&fit=crop&q=60&w=1200" 
                     alt="Sensores de Presión" 
-                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
                     <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Monitoreo de Precisión</span>
@@ -369,9 +369,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-secondary via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensortemp.jpeg?auto=format&fit=crop&q=80&w=800" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensortemp.jpeg?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Sensores Temperatura" 
-                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="relative z-20">
                     <h3 className="text-2xl font-black font-display text-white mb-2 uppercase text-center md:text-left">SENSORES DE TEMPERATURA</h3>
@@ -387,9 +387,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensorvelo.jpeg?auto=format&fit=crop&q=80&w=800" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensorvelo.jpeg?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Sensores Velocidad" 
-                    className="absolute inset-0 w-full h-full object-contain object-center opacity-30 group-hover:scale-105 transition-transform duration-1000"
+                    className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
                   <div className="relative z-20">
                     <h3 className="text-2xl font-black font-display text-white mb-2 uppercase">SENSORES DE VELOCIDAD</h3>
@@ -405,9 +405,9 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/80 via-brand-primary/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/TOTAL.png?auto=format&fit=crop&q=80&w=2000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/TOTAL1.png?auto=format,compress&fit=crop&q=60&w=1200" 
                     alt="Aceites TOTAL" 
-                    className="w-full h-full object-contain object-center group-hover:scale-105 transition-transform duration-1000"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />
                   <div className="absolute inset-x-0 bottom-0 z-20 p-12 text-white">
                     <span className="text-slate-100 font-black uppercase tracking-[0.4em] text-xs mb-3 block">Mantenimiento de Motor</span>
@@ -603,10 +603,10 @@ export default function Products() {
                   <div className="lg:col-span-3 space-y-10">
                      <div className="grid sm:grid-cols-2 gap-6">
                         {modalData.products
-                          .filter(item => !modalBrandFilter || item.sku.toLowerCase().includes(modalBrandFilter.toLowerCase()) || item.name.toLowerCase().includes(modalBrandFilter.toLowerCase()))
+                          .filter(item => !modalBrandFilter || item.brand.toLowerCase().includes(modalBrandFilter.toLowerCase()))
                           .map(item => {
                           const cartItem = cart.find(ci => ci.id === item.id);
-                          const brand = modalData.brands.find(b => item.sku.toLowerCase().includes(b.toLowerCase())) || modalData.brands[0];
+                          const brand = item.brand || modalData.brands[0];
                           
                           return (
                             <div key={item.id} className="p-8 rounded-[2rem] bg-slate-50 border border-slate-100 flex flex-col justify-between hover:bg-white hover:shadow-2xl hover:shadow-slate-200/50 transition-all border-l-[6px] border-l-brand-primary group">
