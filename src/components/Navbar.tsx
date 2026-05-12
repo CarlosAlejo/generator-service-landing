@@ -6,7 +6,7 @@ import { useCart } from '../context/CartContext';
 import Cart from './Cart';
 
 const WHATSAPP_NUMBER = '593998799981';
-const LOGO_SRC = '/Logo%20Vector%20RMF1.svg';
+const LOGO_SRC = '/Logo%20Vector%20RMF1.webp';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

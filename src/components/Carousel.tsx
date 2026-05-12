@@ -4,17 +4,17 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/preventivo.png?auto=format,compress&fit=crop&q=60&w=1000",
+    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/preventivo.webp?auto=format,compress&fit=crop&q=60&w=1000",
     title: "Mantenimiento Preventivo",
     desc: "Evita paradas innecesarias con nuestros planes de mantenimiento."
   },
   {
-    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/scanner.png?auto=format,compress&fit=crop&q=60&w=1000",
+    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/scanner.webp?auto=format,compress&fit=crop&q=60&w=1000",
     title: "Ingeniería de Precisión",
     desc: "Diseños optimizados para la máxima eficiencia industrial."
   },
   {
-    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/brakers.png?auto=format,compress&fit=crop&q=60&w=1000",
+    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/brakers.webp?auto=format,compress&fit=crop&q=60&w=1000",
     title: "Soluciones a Medida",
     desc: "Adaptamos nuestra tecnología a las necesidades de tu planta."
   }

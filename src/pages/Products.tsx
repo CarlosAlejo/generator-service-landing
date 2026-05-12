@@ -248,7 +248,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/modulosDeControl.png?auto=format,compress&fit=crop&q=60&w=1000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/modulosDeControl.webp?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Módulos de Control" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -269,7 +269,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Cargadoresdebateria1.png?auto=format,compress&fit=crop&q=60&w=1000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Cargadoresdebateria1.webp?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Cargadores de Batería" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -290,7 +290,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Precalentadores1.png?auto=format,compress&fit=crop&q=60&w=1000" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Precalentadores1.webp?auto=format,compress&fit=crop&q=60&w=1000" 
                     alt="Precalentadores" 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -311,7 +311,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Tarjetas-AVR1.png??auto=format,compress&fit=crop&q=75&w=600" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Tarjetas-AVR1.webp??auto=format,compress&fit=crop&q=75&w=600" 
                     alt="AVR" 
                     className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -329,7 +329,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/velocidad1.png?auto=format,compress&fit=crop&q=75&w=600" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/velocidad1.webp?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Speed Control" 
                     className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -347,7 +347,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/60 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Sensores1.png?auto=format,compress&fit=crop&q=60&w=1200" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/Sensores1.webp?auto=format,compress&fit=crop&q=60&w=1200" 
                     alt="Sensores de Presión" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />
@@ -369,7 +369,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-brand-secondary via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensortemp.jpeg?auto=format,compress&fit=crop&q=75&w=600" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensortemp.webp?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Sensores Temperatura" 
                     className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -387,7 +387,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-indigo-950 via-transparent to-transparent opacity-80" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensorvelo.jpeg?auto=format,compress&fit=crop&q=75&w=600" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/sensorvelo.webp?auto=format,compress&fit=crop&q=75&w=600" 
                     alt="Sensores Velocidad" 
                     className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 transition-transform duration-1000"
                   />
@@ -405,7 +405,7 @@ export default function Products() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/80 via-brand-primary/40 to-transparent z-10" />
                   <img 
-                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/TOTAL1.png?auto=format,compress&fit=crop&q=60&w=1200" 
+                    src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/TOTAL1.webp?auto=format,compress&fit=crop&q=60&w=1200" 
                     alt="Aceites TOTAL" 
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                   />

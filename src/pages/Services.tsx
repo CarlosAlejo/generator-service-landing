@@ -22,35 +22,35 @@ const services = [
   {
     title: "MANTENIMIENTO PREDICTIVO DE GRUPOS ELECTRÓGENOS",
     desc: "Anticipamos fallas en grupos electrógenos mediante análisis técnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalías antes de que se conviertan en fallas criticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y garantiza la continuidad operativa de sus equipos.",
-    imageSrc: "/services/ELECTROGENOS.svg",
+    imageSrc: "/services/ELECTROGENOS.webp",
     imageAlt: "Servicio de grupos electrógenos",
     message: "Hola, quiero consultar sobre Mantenimiento Predictivo.",
   },
   {
     title: "MANTENIMIENTO PREVENTIVO",
     desc: "Realizamos inspecciones periódicas y servicios programados en grupos electrógenos para asegurar su correcto funcionamiento, prolongar su vida util y evitar fallas inesperadas.",
-    imageSrc: "/services/PREVENTIVO.svg",
+    imageSrc: "/services/PREVENTIVO.webp",
     imageAlt: "Servicio de mantenimiento preventivo",
     message: "Hola, necesito asesoría sobre Mantenimiento Preventivo.",
   },
   {
     title: "MANTENIMIENTO CORRECTIVO",
     desc: "Atendemos y solucionamos fallas eléctricas y mecánicas en grupos electrógenos de manera rápida y eficiente, restableciendo su operatividad en el menor tiempo posible.",
-    imageSrc: "/services/CORRECTIVO.svg",
+    imageSrc: "/services/CORRECTIVO.webp",
     imageAlt: "Servicio de mantenimiento correctivo",
     message: "Hola, solicito información sobre Mantenimiento Correctivo.",
   },
   {
     title: "CONTROL Y AUTOMATIZACIÓN",
     desc: "Implementamos soluciones de automatización y sistemas de control para grupos electrógenos, optimizando su operación, monitoreo y respuesta ante fallas. Integramos tecnología que permite una gestión eficiente, segura y remota.",
-    imageSrc: encodeURI("/services/AUTOMATIZACIÓN.svg"),
+    imageSrc: encodeURI("/services/AUTOMATIZACIÓN.webp"),
     imageAlt: "Servicio de control y automatización",
     message: "Hola, quiero consultar sobre Control y Automatización.",
   },
   {
     title: "DIAGNOSTICO DE MOTORES ELECTRÓNICO",
     desc: "Realizamos diagnostico avanzado en motores electrónicos de diferentes marcas, detectando fallas de manera precisa para optimizar su rendimiento y mantener una operación confiable.",
-    imageSrc: encodeURI("/services/ELECTRÓNICO.svg"),
+    imageSrc: encodeURI("/services/ELECTRÓNICO.webp"),
     imageAlt: "Servicio de diagnostico electrónico",
     message:
       "Hola, necesito asesoría sobre Diagnostico de Motores Electrónicos.",
@@ -58,7 +58,7 @@ const services = [
   {
     title: "ANÁLISIS DE ACEITE EN LABORATORIO",
     desc: "Evaluamos el estado del aceite y de los componentes internos del equipo mediante pruebas especializadas, permitiendo detectar desgaste, contaminación y posibles fallas.",
-    imageSrc: "/services/LABORATORIO.svg",
+    imageSrc: "/services/LABORATORIO.webp",
     imageAlt: "Servicio de análisis de laboratorio",
     message:
       "Hola, solicito información sobre Análisis de Aceite en Laboratorio.",
@@ -75,7 +75,7 @@ export default function Services() {
     <div className="pt-20">
       <SEO
         title="Servicios de Ingeniería y Mantenimiento"
-        description="Servicios especializados en mantenimiento preventivo, automatización industrial y desarrollo de proyectos de ingeniería eléctrica y mecánica en Argentina."
+        description="Servicios especializados en mantenimiento preventivo, automatización industrial y desarrollo de proyectos de ingeniería eléctrica y mecánica en E."
         canonical="/servicios"
       />
       <section className="bg-slate-50 py-24">
@@ -93,7 +93,7 @@ export default function Services() {
               </h2>
               <div className="mx-auto mb-8 h-1.5 w-20 rounded-full bg-brand-primary"></div>
               <p className="mx-auto max-w-2xl text-lg text-slate-500">
-                Ofrecemos un catlogo completo de servicios diseñados para
+                Ofrecemos un catálogo completo de servicios diseñados para
                 mantener tu infraestructura industrial operando al máximo
                 rendimiento.
               </p>

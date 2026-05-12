@@ -67,7 +67,7 @@ export default function History() {
             transition={{ delay: 0.2 }}
             className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed"
           >
-            10 años transformando la industria argentina a través del compromiso, la innovación y la excelencia técnica.
+            10 años transformando la industria ecuatoriana a través del compromiso, la innovación y la excelencia técnica.
           </motion.p>
         </div>
       </section>

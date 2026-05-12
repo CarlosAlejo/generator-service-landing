@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "vite",
     "build": "vite build",
     "build:static": "npm run clean && npm run build && powershell -ExecutionPolicy Bypass -File scripts/prepare-static-deploy.ps1",
-    "preview": "node -e \"process.env.NODE_ENV='production'; import('./server.js').then((m) => m.startServer())\"",
+    "preview": "vite preview",
     "clean": "powershell -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist }\"",
     "lint": "tsc -p tsconfig.app.json && tsc -p tsconfig.node.json"
   },

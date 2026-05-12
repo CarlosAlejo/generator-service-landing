@@ -1,4 +1,4 @@
-const LOGO_SRC = "/LogoRMFW1.svg";
+const LOGO_SRC = "/LogoRMFW1.webp";
 
 export default function Footer() {
   return (

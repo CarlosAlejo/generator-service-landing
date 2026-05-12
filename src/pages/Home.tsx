@@ -18,15 +18,15 @@ export default function Home() {
     <div className="pt-20">
       <SEO 
         title="Ingeniería Industrial y Respaldo Energético"
-        description="Especialistas en sistemas de respaldo energético, mantenimiento industrial y automatización. Soluciones integrales para optimizar la producción industrial en Argentina."
+        description="Especialistas en sistemas de respaldo energético, mantenimiento industrial y automatización. Soluciones integrales para optimizar la producción industrial en Ecuador."
         canonical="/"
       />
       {/* --- HERO SECTION --- */}
       <section className="relative flex min-h-[72vh] items-center overflow-hidden sm:min-h-[80vh]">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.png?auto=format,compress&fit=crop&q=60&w=1280" 
-            srcSet="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.png?auto=format,compress&fit=crop&q=60&w=640 640w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.png?auto=format,compress&fit=crop&q=60&w=1280 1280w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.png?auto=format,compress&fit=crop&q=75&w=1920 1920w"
+            src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.webp?auto=format,compress&fit=crop&q=60&w=1280" 
+            srcSet="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.webp?auto=format,compress&fit=crop&q=60&w=640 640w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.webp?auto=format,compress&fit=crop&q=60&w=1280 1280w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/motor.webp?auto=format,compress&fit=crop&q=75&w=1920 1920w"
             sizes="100vw"
             className="w-full h-full object-cover brightness-[0.25]"
             alt="Ingeniería de precisión y mantenimiento industrial especializado de RMF Motor's"

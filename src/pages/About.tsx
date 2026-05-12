@@ -8,7 +8,7 @@ export default function About() {
     <div className="pt-20">
       <SEO
         title="Sobre Nosotros - Trayectoria y Confianza"
-        description="Conozca a RMF Motor's Ingeniería. 10 años de experiencia brindando soluciones de ingeniería de alta precisión, automatización y mantenimiento industrial en Argentina."
+        description="Conozca a RMF Motor's Ingeniería. 10 años de experiencia brindando soluciones de ingeniería de alta precisión, automatización y mantenimiento industrial en Ecuador."
         canonical="/nosotros"
       />
       <section className="py-24 bg-white">
@@ -23,8 +23,8 @@ export default function About() {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-slate-50 rounded-full -z-10"></div>
               <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-200">
                 <img
-                  src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=800"
-                  srcSet="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=400 400w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.png?auto=format,compress&fit=crop&q=60&w=800 800w"
+                  src="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.webp?auto=format,compress&fit=crop&q=60&w=800"
+                  srcSet="https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.webp?auto=format,compress&fit=crop&q=60&w=400 400w, https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/equipo.webp?auto=format,compress&fit=crop&q=60&w=800 800w"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   alt="Ingeniero trabajando"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
