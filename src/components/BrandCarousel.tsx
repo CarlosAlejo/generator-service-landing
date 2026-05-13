@@ -9,7 +9,7 @@ const brands = [
   },
   {
     name: "Perkins",
-    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/Perkins-Logo.svg.webp",
+    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/Perkins-Logo.webp",
     width: 200,
     height: 80,
   },
@@ -21,19 +21,19 @@ const brands = [
   },
   {
     name: "Doosan",
-    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/Image-empty-state.webp",
+    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/Image-empty.webp",
     width: 200,
     height: 80,
   },
   {
     name: "CAT",
-    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/OIP.webp",
+    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/OI.webp",
     width: 200,
     height: 80,
   },
   {
     name: "John Deere",
-    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/John-Deere-Logo-500x281.webp",
+    logo: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/logos/John-Deere-Logo.webp",
     width: 200,
     height: 80,
   },

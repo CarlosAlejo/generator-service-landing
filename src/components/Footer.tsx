@@ -1,4 +1,4 @@
-const LOGO_SRC = "/LogoRMFW1.webp";
+const LOGO_SRC = "/LogoRMFW1.avif";
 
 export default function Footer() {
   return (

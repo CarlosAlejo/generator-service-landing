@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
-    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/preventivo.webp?auto=format,compress&fit=crop&q=60&w=1000",
+    image: "https://pub-5ad9781a36b548ceb25cb8ae48abd358.r2.dev/preventivo.avif?auto=format,compress&fit=crop&q=60&w=1000",
     title: "Mantenimiento Preventivo",
     desc: "Evita paradas innecesarias con nuestros planes de mantenimiento."
   },
@@ -46,6 +46,7 @@ export default function Carousel() {
         >
           <img 
             src={slides[current].image} 
+            loading={current === 0 ? "eager" : "lazy"}
             className="w-full h-full object-cover brightness-50"
             alt={slides[current].title}
             referrerPolicy="no-referrer"
