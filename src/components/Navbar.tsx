@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingCart } from 'lucide-react';
+import { Menu, X, ShoppingCart, UserRound } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { useCart } from '../context/CartContext';
 import Cart from './Cart';
@@ -88,9 +88,18 @@ export default function Navbar() {
                 </span>
               )}
             </button>
+            <a
+              href="https://sistema.rmfmotors.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-4 py-2.5 text-sm font-bold text-white shadow-md transition-colors hover:bg-brand-primary/90"
+            >
+              <UserRound size={18} aria-hidden="true" />
+              Portal RMF MOTORS
+            </a>
           </div>
 
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
             <button
               type="button"
               onClick={() => setIsCartOpen(true)}
@@ -104,6 +113,16 @@ export default function Navbar() {
                 </span>
               )}
             </button>
+            <a
+              href="https://sistema.rmfmotors.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Portal RMF MOTORS"
+              className="inline-flex items-center gap-2 rounded-full bg-brand-primary px-3 py-2 text-xs font-bold text-white"
+            >
+              <UserRound size={18} aria-hidden="true" />
+              Portal RMF MOTORS
+            </a>
             <button
               type="button"
               className="p-2 text-slate-600"
@@ -148,6 +167,7 @@ export default function Navbar() {
               >
                 Solicitar Presupuesto
               </button>
+              
             </div>
           </motion.div>
         )}
