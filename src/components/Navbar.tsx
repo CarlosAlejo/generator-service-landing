@@ -36,7 +36,15 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Link to="/" className="flex items-center">
-              <img src={LOGO_SRC} alt="RMF Motor's Ingeniería" width={400} height={100} className="h-12 w-auto sm:h-14" loading="lazy"/>
+              <img
+                src={LOGO_SRC}
+                alt="RMF Motor's Ingenieria"
+                width={400}
+                height={100}
+                className="h-12 w-auto sm:h-14"
+                loading="eager"
+                fetchPriority="high"
+              />
             </Link>
           </motion.div>
 
@@ -61,7 +69,7 @@ export default function Navbar() {
             ))}
             <button
               type="button"
-              onClick={() => handleWhatsAppAction('Hola, me gustaría solicitar un presupuesto.')}
+              onClick={() => handleWhatsAppAction('Hola, me gustaria solicitar un presupuesto.')}
               className="rounded-full bg-slate-900 px-5 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-brand-primary hover:shadow-brand-primary/20"
             >
               Presupuesto
@@ -71,7 +79,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-slate-600 transition-colors hover:text-brand-primary"
-              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} artículos` : ''}`}
+              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} articulos` : ''}`}
             >
               <ShoppingCart size={24} />
               {totalItems > 0 && (
@@ -87,7 +95,7 @@ export default function Navbar() {
               type="button"
               onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-slate-600"
-              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} artículos` : ''}`}
+              aria-label={`Abrir carrito${totalItems > 0 ? ` con ${totalItems} articulos` : ''}`}
             >
               <ShoppingCart size={24} />
               {totalItems > 0 && (
@@ -100,7 +108,7 @@ export default function Navbar() {
               type="button"
               className="p-2 text-slate-600"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label={isMenuOpen ? 'Cerrar menu de navegación' : 'Abrir menu de navegación'}
+              aria-label={isMenuOpen ? 'Cerrar menu de navegacion' : 'Abrir menu de navegacion'}
             >
               {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
@@ -135,7 +143,7 @@ export default function Navbar() {
               ))}
               <button
                 type="button"
-                onClick={() => handleWhatsAppAction('Hola, me gustaría solicitar un presupuesto.')}
+                onClick={() => handleWhatsAppAction('Hola, me gustaria solicitar un presupuesto.')}
                 className="w-full rounded-xl bg-brand-primary py-4 font-bold text-white shadow-lg"
               >
                 Solicitar Presupuesto

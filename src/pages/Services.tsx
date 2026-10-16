@@ -21,14 +21,14 @@ const staggerContainer = {
 const services = [
   {
     title: "MANTENIMIENTO PREDICTIVO DE GRUPOS ELECTRÓGENOS",
-    desc: "Anticipamos fallas en grupos electrógenos mediante análisis técnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalías antes de que se conviertan en fallas criticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y garantiza la continuidad operativa de sus equipos.",
+    desc: "Anticipamos fallas en grupos electrógenos mediante análisis técnicos y monitoreo de condiciones operativas, permitiendo detectar desgastes o anomalías antes de que se conviertan en fallas críticas. Este servicio optimiza el rendimiento, reduce costos imprevistos y la continuidad operativa de sus equipos.",
     imageSrc: "/services/ELECTROGENOS.webp",
     imageAlt: "Servicio de grupos electrógenos",
     message: "Hola, quiero consultar sobre Mantenimiento Predictivo.",
   },
   {
     title: "MANTENIMIENTO PREVENTIVO",
-    desc: "Realizamos inspecciones periódicas y servicios programados en grupos electrógenos para asegurar su correcto funcionamiento, prolongar su vida util y evitar fallas inesperadas.",
+    desc: "Realizamos inspecciones periódicas y servicios programados en grupos electrógenos para asegurar su correcto funcionamiento, prolongar su vida útil y evitar fallas inesperadas.",
     imageSrc: "/services/PREVENTIVO.webp",
     imageAlt: "Servicio de mantenimiento preventivo",
     message: "Hola, necesito asesoría sobre Mantenimiento Preventivo.",
@@ -48,7 +48,7 @@ const services = [
     message: "Hola, quiero consultar sobre Control y Automatización.",
   },
   {
-    title: "DIAGNOSTICO DE MOTORES ELECTRÓNICO",
+    title: "DIAGNÓSTICO DE MOTORES ELECTRÓNICO",
     desc: "Realizamos diagnostico avanzado en motores electrónicos de diferentes marcas, detectando fallas de manera precisa para optimizar su rendimiento y mantener una operación confiable.",
     imageSrc: encodeURI("/services/ELECTRÓNICO.webp"),
     imageAlt: "Servicio de diagnostico electrónico",

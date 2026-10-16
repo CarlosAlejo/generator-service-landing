@@ -475,7 +475,7 @@ export default function Products() {
                       <div className="mt-auto pt-8 border-t border-slate-50 flex items-center justify-between">
                         <div>
                           <span className="text-[10px] text-brand-primary font-black uppercase tracking-widest block bg-brand-primary/10 px-3 py-1 rounded-lg border border-brand-primary/20">Original</span>
-                          <span className="text-[10px] text-slate-600 font-bold uppercase tracking-widest block mt-2">Garantizado</span>
+                          <span className="text-[10px] text-slate-600 font-bold uppercase tracking-widest block mt-2">Excelente</span>
                         </div>
 
                         {cartItem ? (

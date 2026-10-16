@@ -50,7 +50,7 @@ export default function History() {
             width={1200}
             height={800}
             loading="eager"
-            data-fetchpriority="high"
+            fetchPriority="high"
           />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

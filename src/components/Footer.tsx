@@ -37,7 +37,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li>Lunes a Viernes: 08:00 - 18:00</li>
               <li>Sábados: 09:00 - 13:00</li>
-              <li className="font-bold text-brand-secondary">Emergencias 24/7</li>
+              <li className="font-bold text-orange-700 text-2xl">Emergencias 24/7</li>
             </ul>
           </div>
         </div>

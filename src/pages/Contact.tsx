@@ -95,10 +95,16 @@ export default function Contact() {
                     href: "tel:+593998799981",
                   },
                   {
+                    Icon: Phone,
+                    label: "Llámanos",
+                    val: "ECU · +593 99 121 9023",
+                    href: "tel:+593991219023",
+                  },
+                  {
                     Icon: Mail,
                     label: "Email",
-                    val: "contacto@rmfmotors.com",
-                    href: "mailto:contacto@rmfmotors.com",
+                    val: "comercial@rmfmotors.com",
+                    href: "mailto:comercial@rmfmotors.com",
                   },
                   {
                     Icon: MapPin,

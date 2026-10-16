@@ -33,7 +33,7 @@ export default function Home() {
             width={1920}
             height={1080}
             loading="eager"
-            data-fetchpriority="high"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 to-transparent"></div>
         </div>
